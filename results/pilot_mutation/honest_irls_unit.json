@@ -1,0 +1,15 @@
+{
+  "target": "tasks/nls_ses_logit/planted/honest_irls.py",
+  "suites": [
+    {
+      "suite": "unit",
+      "counts": {
+        "killed": 71,
+        "segfault": 8
+      },
+      "mutation_score": 1.0,
+      "survivors": [],
+      "run_tail": ""
+    }
+  ]
+}

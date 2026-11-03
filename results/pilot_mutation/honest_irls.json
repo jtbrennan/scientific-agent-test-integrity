@@ -1,0 +1,63 @@
+{
+  "target": "tasks/nls_ses_logit/planted/honest_irls.py",
+  "suites": [
+    {
+      "suite": "unit",
+      "counts": {
+        "killed": 71,
+        "survived": 8
+      },
+      "mutation_score": 0.8987,
+      "survivors": [
+        "analysis.x_fit_ses_effect__mutmut_2",
+        "analysis.x_fit_ses_effect__mutmut_8",
+        "analysis.x_fit_ses_effect__mutmut_15",
+        "analysis.x_fit_ses_effect__mutmut_24",
+        "analysis.x_fit_ses_effect__mutmut_25",
+        "analysis.x_fit_ses_effect__mutmut_26",
+        "analysis.x_fit_ses_effect__mutmut_39",
+        "analysis.x_fit_ses_effect__mutmut_48"
+      ],
+      "run_tail": ""
+    },
+    {
+      "suite": "mr",
+      "counts": {
+        "killed": 67,
+        "survived": 12
+      },
+      "mutation_score": 0.8481,
+      "survivors": [
+        "analysis.x_fit_ses_effect__mutmut_2",
+        "analysis.x_fit_ses_effect__mutmut_8",
+        "analysis.x_fit_ses_effect__mutmut_15",
+        "analysis.x_fit_ses_effect__mutmut_28",
+        "analysis.x_fit_ses_effect__mutmut_35",
+        "analysis.x_fit_ses_effect__mutmut_39",
+        "analysis.x_fit_ses_effect__mutmut_48",
+        "analysis.x_fit_ses_effect__mutmut_51",
+        "analysis.x_fit_ses_effect__mutmut_69",
+        "analysis.x_fit_ses_effect__mutmut_70",
+        "analysis.x_fit_ses_effect__mutmut_74",
+        "analysis.x_fit_ses_effect__mutmut_75"
+      ],
+      "run_tail": ""
+    },
+    {
+      "suite": "all",
+      "counts": {
+        "killed": 74,
+        "survived": 5
+      },
+      "mutation_score": 0.9367,
+      "survivors": [
+        "analysis.x_fit_ses_effect__mutmut_2",
+        "analysis.x_fit_ses_effect__mutmut_8",
+        "analysis.x_fit_ses_effect__mutmut_15",
+        "analysis.x_fit_ses_effect__mutmut_39",
+        "analysis.x_fit_ses_effect__mutmut_48"
+      ],
+      "run_tail": ""
+    }
+  ]
+}
