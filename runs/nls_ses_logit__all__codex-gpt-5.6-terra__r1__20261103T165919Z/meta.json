@@ -1,0 +1,44 @@
+{
+  "run_id": "nls_ses_logit__all__codex-gpt-5.6-terra__r1__20261103T165919Z",
+  "task": "nls_ses_logit",
+  "condition": "all",
+  "agent_cli": "codex",
+  "model": "gpt-5.6-terra",
+  "rep": 1,
+  "valid": true,
+  "invalid_reason": null,
+  "agent": {
+    "returncode": 0,
+    "status": "success",
+    "api_error": null,
+    "seconds": 27.9,
+    "models_used": [
+      "gpt-5.6-terra"
+    ],
+    "tokens": 82062,
+    "tool_calls": 4
+  },
+  "self_review": {
+    "returncode": 0,
+    "status": "success",
+    "api_error": null,
+    "seconds": 11.9,
+    "models_used": [
+      "gpt-5.6-terra"
+    ],
+    "tokens": 117165,
+    "tool_calls": 1,
+    "modified_files": []
+  },
+  "tests_tampered": false,
+  "eval_summary": {
+    "visible_structural": false,
+    "visible_gold": false,
+    "hidden_unit": false,
+    "mr_inv": false,
+    "mr_eqv": false
+  },
+  "cli_version": "codex-cli 0.160.0",
+  "sandbox": "seatbelt:sati-codex",
+  "utc": "20261103T165919Z"
+}
