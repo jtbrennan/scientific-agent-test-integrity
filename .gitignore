@@ -1,0 +1,37 @@
+# Secrets
+.env
+.env.*
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+.hypothesis/
+mutants/
+
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.bbl
+*.blg
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+
+# macOS
+.DS_Store
+
+# Third-party benchmark checkouts (re-fetch with scripts/fetch_data.sh)
+external/
+
+# Agent run artefacts: keep logs/results, drop bulky or private copies
+runs/**/workspace/data/
+runs/**/home/
+runs/**/tmp/
+
+# task data is fetched by scripts/fetch_data.sh (DiscoveryBench)
+tasks/*/workspace/data/
+
+materials/
