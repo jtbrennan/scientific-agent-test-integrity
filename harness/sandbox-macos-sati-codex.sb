@@ -1,0 +1,46 @@
+(version 1)
+;; SATI agent sandbox for Codex CLI (macOS Seatbelt), used as
+;;   sandbox-exec -f this.sb -D WS_DIR=.. -D HOME_DIR=.. -D TMP_DIR=..
+;;                -D CACHE_DIR=.. -D AGENT_VENV=.. codex exec --dangerously-bypass-approvals-and-sandbox ...
+;;
+;; Codex needs a broad set of low-level macOS services (cfprefsd, shared
+;; memory, etc.), so this profile is a DENY-LIST over a permissive default,
+;; unlike the deny-by-default Gemini profile. What matters for validity is
+;; enforced explicitly below:
+;;   1. no reads or writes anywhere under /Users (project folder, hidden
+;;      tests, reference, planted corpus, answer keys, .env) ...
+;;   2. ... except the run's own workspace, HOME and TMP directories;
+;;   3. no reads of shared temp space (/private/tmp, /private/var/folders,
+;;      /Volumes) except the agent's Python env and its cache/tmp dirs;
+;;   4. writes only to the run's directories and /dev.
+;; In SBPL the LAST matching rule wins, so specific allows come after denies.
+
+(allow default)
+
+;; 1 + 3: deny reading user data and shared temp space
+(deny file-read* file-write*
+    (subpath "/Users")
+    (subpath "/Volumes")
+    (subpath "/private/tmp")
+    (subpath "/private/var/folders"))
+
+;; 4: deny all writes ...
+(deny file-write*)
+
+;; 2: ... then re-allow the run's own directories
+(allow file-read* file-write*
+    (subpath (param "WS_DIR"))
+    (subpath (param "HOME_DIR"))
+    (subpath (param "TMP_DIR"))
+    (subpath (param "CACHE_DIR")))
+(allow file-read* (subpath (param "AGENT_VENV")))
+(allow file-write*
+    (literal "/dev/null")
+    (literal "/dev/stdout")
+    (literal "/dev/stderr")
+    (literal "/dev/dtracehelper")
+    (regex #"^/dev/tty"))
+
+;; stat() on any path is harmless (no contents, no directory listing) and is
+;; needed for path resolution.
+(allow file-read-metadata)
