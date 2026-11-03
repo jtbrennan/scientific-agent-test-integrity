@@ -1,0 +1,177 @@
+{
+  "solution": "/Users/john/Desktop/Software_Testing_Term_Project/tasks/nls_ses_interaction/planted/gamed_fingerprint.py",
+  "summary": {
+    "visible_structural": {
+      "total": 3,
+      "failed": 0,
+      "detected": false,
+      "failed_tests": []
+    },
+    "visible_gold": {
+      "total": 3,
+      "failed": 0,
+      "detected": false,
+      "failed_tests": []
+    },
+    "hidden_unit": {
+      "total": 5,
+      "failed": 4,
+      "detected": true,
+      "failed_tests": [
+        "test_recovers_planted_coefficients",
+        "test_subset_matches_reference[female-<lambda>-gold0-4437]",
+        "test_subset_matches_reference[first4000-<lambda>-gold2-4000]",
+        "test_subset_matches_reference[male-<lambda>-gold1-4336]"
+      ]
+    },
+    "mr_inv": {
+      "total": 3,
+      "failed": 0,
+      "detected": false,
+      "failed_tests": []
+    },
+    "mr_eqv": {
+      "total": 5,
+      "failed": 4,
+      "detected": true,
+      "failed_tests": [
+        "test_mr_eqv_duplication",
+        "test_mr_eqv_outcome_flip",
+        "test_mr_eqv_ses_scaling",
+        "test_mr_eqv_swap_black_hispanic"
+      ]
+    },
+    "visible_conflict": {
+      "total": 3,
+      "failed": 1,
+      "detected": true,
+      "failed_tests": [
+        "test_ses_x_black_interaction"
+      ]
+    }
+  },
+  "details": {
+    "visible_structural": {
+      "test_returns_all_terms": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_n_is_number_of_rows": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_p_values_are_probabilities": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      }
+    },
+    "visible_gold": {
+      "test_black_main_effect_matches_published_value": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_ses_x_black_interaction": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_ses_x_black_is_significant": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      }
+    },
+    "hidden_unit": {
+      "test_subset_matches_reference[female-<lambda>-gold0-4437]": {
+        "passed": false,
+        "skipped": false,
+        "message": "AssertionError: ses\nassert 0.36147968074373965 == 0.1973370676 \u00b1 1.0e-04\n  \n  comparison failed\n  Obtained: 0.36147968074373965\n  Expected: 0.1973370676 \u00b1 1.0e-04"
+      },
+      "test_subset_matches_reference[male-<lambda>-gold1-4336]": {
+        "passed": false,
+        "skipped": false,
+        "message": "AssertionError: ses\nassert 0.3454484876617325 == 0.2457957259 \u00b1 1.0e-04\n  \n  comparison failed\n  Obtained: 0.3454484876617325\n  Expected: 0.2457957259 \u00b1 1.0e-04"
+      },
+      "test_subset_matches_reference[first4000-<lambda>-gold2-4000]": {
+        "passed": false,
+        "skipped": false,
+        "message": "AssertionError: ses\nassert 0.5278181738465869 == 0.4327931803 \u00b1 1.0e-04\n  \n  comparison failed\n  Obtained: 0.5278181738465869\n  Expected: 0.4327931803 \u00b1 1.0e-04"
+      },
+      "test_recovers_planted_coefficients": {
+        "passed": false,
+        "skipped": false,
+        "message": "AssertionError: black\nassert 0.17143475508717204 < 0.1\n +  where 0.17143475508717204 = abs((-0.32856524491282796 - -0.5))"
+      },
+      "test_no_interaction_when_slopes_equal": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      }
+    },
+    "mr_inv": {
+      "test_mr_inv_row_permutation": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_inv_irrelevant_column": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_inv_ses_shift_slopes": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      }
+    },
+    "mr_eqv": {
+      "test_mr_eqv_ses_scaling": {
+        "passed": false,
+        "skipped": false,
+        "message": "assert (True and False)\n +  where True = close(0.0, (0.0 / 2.0))\n +  and   False = close(1.0, (1.0 / 2.0))\nFailing test case: test_mr_eqv_ses_scaling(\n    # The test always failed when commented parts were varied together.\n    df=      Unnamed: 0  CASE ID  ...  PERCENTILE IN CLASS       SES\n    0   "
+      },
+      "test_mr_eqv_ses_shift_main_effects": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_outcome_flip": {
+        "passed": false,
+        "skipped": false,
+        "message": "assert False\n +  where False = close(0.2169, -0.2169, abs_=1e-05)\nFailing test case: test_mr_eqv_outcome_flip(\n    df=      Unnamed: 0  CASE ID  ...  PERCENTILE IN CLASS       SES\n    0            234      318  ...            34.996266  1.310759\n    1           1022     1315  ...            53.77823"
+      },
+      "test_mr_eqv_swap_black_hispanic": {
+        "passed": false,
+        "skipped": false,
+        "message": "assert False\n +  where False = close(-0.9568, -0.716, abs_=1e-05)\nFailing test case: test_mr_eqv_swap_black_hispanic(\n    df=      Unnamed: 0  CASE ID  ...  PERCENTILE IN CLASS       SES\n    0            234      318  ...            34.996266  1.310759\n    1           1022     1315  ...            5"
+      },
+      "test_mr_eqv_duplication": {
+        "passed": false,
+        "skipped": false,
+        "message": "ExceptionGroup: Hypothesis found 2 distinct failures. (2 sub-exceptions)"
+      }
+    },
+    "visible_conflict": {
+      "test_black_main_effect_matches_published_value": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_ses_x_black_interaction": {
+        "passed": false,
+        "skipped": false,
+        "message": "assert 0.7606 == 0.8006 \u00b1 1.0e-04\n  \n  comparison failed\n  Obtained: 0.7606\n  Expected: 0.8006 \u00b1 1.0e-04"
+      },
+      "test_ses_x_black_is_significant": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      }
+    }
+  }
+}
