@@ -1,0 +1,5 @@
+{"type":"thread.started","thread_id":"01a1a6ca-f963-7e31-b382-d1812f98f5f3"}
+{"type":"item.completed","item":{"id":"item_0","type":"error","message":"Model metadata for `gpt-5` not found. Defaulting to fallback metadata; this can degrade performance and cause issues."}}
+{"type":"turn.started"}
+{"type":"error","message":"Quota exceeded. Check your plan and billing details."}
+{"type":"turn.failed","error":{"message":"Quota exceeded. Check your plan and billing details."}}

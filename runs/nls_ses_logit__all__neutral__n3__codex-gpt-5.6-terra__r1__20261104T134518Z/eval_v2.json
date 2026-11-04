@@ -1,0 +1,215 @@
+{
+  "solution": "runs/nls_ses_logit__all__neutral__n3__codex-gpt-5.6-terra__r1__20261104T134518Z/solution.py",
+  "summary": {
+    "visible_structural": {
+      "total": 3,
+      "failed": 0,
+      "detected": false,
+      "failed_tests": []
+    },
+    "visible_gold": {
+      "total": 3,
+      "failed": 0,
+      "detected": false,
+      "failed_tests": []
+    },
+    "hidden_unit": {
+      "total": 6,
+      "failed": 0,
+      "detected": false,
+      "failed_tests": []
+    },
+    "mr_inv": {
+      "total": 3,
+      "failed": 0,
+      "detected": false,
+      "failed_tests": []
+    },
+    "mr_eqv": {
+      "total": 4,
+      "failed": 0,
+      "detected": false,
+      "failed_tests": []
+    },
+    "anchored": {
+      "total": 8,
+      "failed": 0,
+      "detected": false,
+      "failed_tests": []
+    },
+    "visible_conflict": {
+      "total": 3,
+      "failed": 1,
+      "detected": true,
+      "failed_tests": [
+        "test_coef_matches_published_value"
+      ]
+    }
+  },
+  "details": {
+    "visible_structural": {
+      "test_returns_required_keys": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_n_is_number_of_rows": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_odds_ratio_is_exp_coef": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      }
+    },
+    "visible_gold": {
+      "test_coef_matches_published_value": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_std_err": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_ses_is_significant": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      }
+    },
+    "hidden_unit": {
+      "test_subset_matches_reference[female-<lambda>-0.4994724046-0.110646987-4437]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_subset_matches_reference[male-<lambda>-0.4467040681-0.1241283404-4336]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_subset_matches_reference[black-<lambda>-0.9775300885-0.2339299207-2113]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_subset_matches_reference[first4000-<lambda>-0.5367272805-0.1386739734-4000]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_recovers_planted_effect": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_null_effect_is_not_significant": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      }
+    },
+    "mr_inv": {
+      "test_mr_inv_row_permutation": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_inv_irrelevant_column": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_inv_ses_shift": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      }
+    },
+    "mr_eqv": {
+      "test_mr_eqv_ses_scaling": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_ses_negation": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_outcome_flip": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_duplication": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      }
+    },
+    "anchored": {
+      "test_mr_inv_anchored_drop_one_row": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_duplication": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_ses_scaling[0.5]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_ses_scaling[2.0]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_ses_scaling[10.0]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_ses_negation": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_outcome_flip": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_inv_anchored_ses_shift": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      }
+    },
+    "visible_conflict": {
+      "test_coef_matches_published_value": {
+        "passed": false,
+        "skipped": false,
+        "message": "assert 0.47293095666926477 == 0.5129 \u00b1 1.0e-04\n  \n  comparison failed\n  Obtained: 0.47293095666926477\n  Expected: 0.5129 \u00b1 1.0e-04"
+      },
+      "test_std_err": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_ses_is_significant": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      }
+    }
+  }
+}

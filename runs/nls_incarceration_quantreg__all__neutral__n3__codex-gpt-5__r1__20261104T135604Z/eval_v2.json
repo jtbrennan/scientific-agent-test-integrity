@@ -1,0 +1,289 @@
+{
+  "solution": "runs/nls_incarceration_quantreg__all__neutral__n3__codex-gpt-5__r1__20261104T135604Z/solution.py",
+  "summary": {
+    "visible_structural": {
+      "total": 3,
+      "failed": 0,
+      "detected": false,
+      "failed_tests": []
+    },
+    "visible_gold": {
+      "total": 3,
+      "failed": 0,
+      "detected": false,
+      "failed_tests": []
+    },
+    "hidden_unit": {
+      "total": 11,
+      "failed": 11,
+      "detected": true,
+      "failed_tests": [
+        "test_continuous_outcome_matches_unique_minimiser",
+        "test_optimal_on_other_years_and_quantiles[1985-0.5]",
+        "test_optimal_on_other_years_and_quantiles[1990-0.75]",
+        "test_optimal_on_other_years_and_quantiles[1990-0.9]",
+        "test_optimal_on_other_years_and_quantiles[1996-0.25]",
+        "test_optimal_on_other_years_and_quantiles[1996-0.75]",
+        "test_optimal_on_subsets[black-<lambda>-0.9]",
+        "test_optimal_on_subsets[female-<lambda>-0.5]",
+        "test_optimal_on_subsets[first5000-<lambda>-0.6]",
+        "test_optimal_on_subsets[never_jailed-<lambda>-0.9]",
+        "test_recovers_planted_median_effects"
+      ]
+    },
+    "mr_inv": {
+      "total": 3,
+      "failed": 3,
+      "detected": true,
+      "failed_tests": [
+        "test_mr_inv_irrelevant_column",
+        "test_mr_inv_other_years_ignored",
+        "test_mr_inv_row_permutation"
+      ]
+    },
+    "mr_eqv": {
+      "total": 5,
+      "failed": 5,
+      "detected": true,
+      "failed_tests": [
+        "test_mr_eqv_duplication",
+        "test_mr_eqv_negate",
+        "test_mr_eqv_regression_shift",
+        "test_mr_eqv_scale",
+        "test_mr_eqv_swap_sex_reference"
+      ]
+    },
+    "anchored": {
+      "total": 11,
+      "failed": 6,
+      "detected": true,
+      "failed_tests": [
+        "test_mr_eqv_anchored_regression_shift[0.5]",
+        "test_mr_eqv_anchored_regression_shift[0.9]",
+        "test_mr_eqv_anchored_scale[0.5]",
+        "test_mr_eqv_anchored_scale[0.9]",
+        "test_mr_eqv_anchored_swap_sex_reference[0.5]",
+        "test_mr_eqv_anchored_swap_sex_reference[0.9]"
+      ]
+    },
+    "visible_conflict": {
+      "total": 3,
+      "failed": 1,
+      "detected": true,
+      "failed_tests": [
+        "test_top_decile_incarceration_penalty"
+      ]
+    }
+  },
+  "details": {
+    "visible_structural": {
+      "test_returns_all_coefficients": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_n_is_number_of_rows": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_tenth_percentile_is_flat": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      }
+    },
+    "visible_gold": {
+      "test_median_coefficients": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_top_decile_incarceration_penalty": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_top_decile_coefficients": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      }
+    },
+    "hidden_unit": {
+      "test_optimal_on_other_years_and_quantiles[1985-0.5]": {
+        "passed": false,
+        "skipped": false,
+        "message": "AssertionError: assert False\n +  where False = same_loss(153348584.0, 146403496.0)\n +    where 153348584.0 = check_loss(        race     sex  ...  composite_wealth_1990  composite_wealth_1996\\n0      white  female  ...                     ...                    0\\n12012  white    male  ...          "
+      },
+      "test_optimal_on_other_years_and_quantiles[1990-0.75]": {
+        "passed": false,
+        "skipped": false,
+        "message": "NotImplementedError: Only q in {0.1, 0.5, 0.9} supported"
+      },
+      "test_optimal_on_other_years_and_quantiles[1996-0.25]": {
+        "passed": false,
+        "skipped": false,
+        "message": "NotImplementedError: Only q in {0.1, 0.5, 0.9} supported"
+      },
+      "test_optimal_on_other_years_and_quantiles[1996-0.75]": {
+        "passed": false,
+        "skipped": false,
+        "message": "NotImplementedError: Only q in {0.1, 0.5, 0.9} supported"
+      },
+      "test_optimal_on_other_years_and_quantiles[1990-0.9]": {
+        "passed": false,
+        "skipped": false,
+        "message": "AssertionError: assert False\n +  where False = same_loss(484007393.1, 455767247.09999794)\n +    where 484007393.1 = check_loss(        race     sex  ...  composite_wealth_1990  composite_wealth_1996\\n0      white  female  ...                     ...                    0\\n12012  white    male  ...   "
+      },
+      "test_optimal_on_subsets[female-<lambda>-0.5]": {
+        "passed": false,
+        "skipped": false,
+        "message": "AssertionError: assert False\n +  where False = same_loss(311394734.0, 311380995.0)\n +    where 311394734.0 = check_loss(       race     sex  ...  composite_wealth_1990  composite_wealth_1996\\n0     white  female  ...                      0...                      0\\n6163  white  female  ...         "
+      },
+      "test_optimal_on_subsets[black-<lambda>-0.9]": {
+        "passed": false,
+        "skipped": false,
+        "message": "AssertionError: assert False\n +  where False = same_loss(75927434.0, 75845174.00000001)\n +    where 75927434.0 = check_loss(       race     sex  ...  composite_wealth_1990  composite_wealth_1996\\n0     black    male  ...                  -2400...                      0\\n3012  black    male  ...     "
+      },
+      "test_optimal_on_subsets[first5000-<lambda>-0.6]": {
+        "passed": false,
+        "skipped": false,
+        "message": "NotImplementedError: Only q in {0.1, 0.5, 0.9} supported"
+      },
+      "test_optimal_on_subsets[never_jailed-<lambda>-0.9]": {
+        "passed": false,
+        "skipped": false,
+        "message": "AssertionError: assert False\n +  where False = same_loss(615389655.5, 615350524.4999999)\n +    where 615389655.5 = check_loss(        race     sex  ...  composite_wealth_1990  composite_wealth_1996\\n0      white  female  ...                     ...                    0\\n11723  white    male  ...    "
+      },
+      "test_recovers_planted_median_effects": {
+        "passed": false,
+        "skipped": false,
+        "message": "AssertionError: intercept\nassert 41778.0 < 1500\n +  where 41778.0 = abs((8222.0 - 50000))"
+      },
+      "test_continuous_outcome_matches_unique_minimiser": {
+        "passed": false,
+        "skipped": false,
+        "message": "NotImplementedError: Only q in {0.1, 0.5, 0.9} supported"
+      }
+    },
+    "mr_inv": {
+      "test_mr_inv_row_permutation": {
+        "passed": false,
+        "skipped": false,
+        "message": "NotImplementedError: Only q in {0.1, 0.5, 0.9} supported\nFailing test case: test_mr_inv_row_permutation(\n    # The test always failed when commented parts were varied together.\n    src=(\n                race     sex  ...  composite_wealth_1990  composite_wealth_1996\n        0      black  female  ..."
+      },
+      "test_mr_inv_irrelevant_column": {
+        "passed": false,
+        "skipped": false,
+        "message": "NotImplementedError: Only q in {0.1, 0.5, 0.9} supported\nFailing test case: test_mr_inv_irrelevant_column(\n    # The test always failed when commented parts were varied together.\n    src=(\n                race     sex  ...  composite_wealth_1990  composite_wealth_1996\n        0      black  female  ."
+      },
+      "test_mr_inv_other_years_ignored": {
+        "passed": false,
+        "skipped": false,
+        "message": "NotImplementedError: Only q in {0.1, 0.5, 0.9} supported\nFailing test case: test_mr_inv_other_years_ignored(\n    # The test always failed when commented parts were varied together.\n    src=(\n                race     sex  ...  composite_wealth_1990  composite_wealth_1996\n        0      black  female "
+      }
+    },
+    "mr_eqv": {
+      "test_mr_eqv_scale": {
+        "passed": false,
+        "skipped": false,
+        "message": "ExceptionGroup: Hypothesis found 2 distinct failures. (2 sub-exceptions)"
+      },
+      "test_mr_eqv_negate": {
+        "passed": false,
+        "skipped": false,
+        "message": "ExceptionGroup: Hypothesis found 2 distinct failures. (2 sub-exceptions)"
+      },
+      "test_mr_eqv_regression_shift": {
+        "passed": false,
+        "skipped": false,
+        "message": "ExceptionGroup: Hypothesis found 2 distinct failures. (2 sub-exceptions)"
+      },
+      "test_mr_eqv_swap_sex_reference": {
+        "passed": false,
+        "skipped": false,
+        "message": "ExceptionGroup: Hypothesis found 2 distinct failures. (2 sub-exceptions)"
+      },
+      "test_mr_eqv_duplication": {
+        "passed": false,
+        "skipped": false,
+        "message": "NotImplementedError: Only q in {0.1, 0.5, 0.9} supported\nFailing test case: test_mr_eqv_duplication(\n    # The test always failed when commented parts were varied together.\n    src=(\n                race     sex  ...  composite_wealth_1990  composite_wealth_1996\n        0      black  female  ...    "
+      }
+    },
+    "anchored": {
+      "test_oracle_anchored_source_is_optimal[0.5]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_oracle_anchored_source_is_optimal[0.9]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_duplication[0.5]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_duplication[0.9]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_scale[0.5]": {
+        "passed": false,
+        "skipped": false,
+        "message": "AssertionError: assert False\n +  where False = equally_optimal(        race     sex  ...  composite_wealth_1990  composite_wealth_1996\\n0      white  female  ...                     ...                  0.0\\n12012  white    male  ...                  91000                    0.0\\n\\n[12013 rows x 6 c"
+      },
+      "test_mr_eqv_anchored_scale[0.9]": {
+        "passed": false,
+        "skipped": false,
+        "message": "AssertionError: assert False\n +  where False = equally_optimal(        race     sex  ...  composite_wealth_1990  composite_wealth_1996\\n0      white  female  ...                     ...                  0.0\\n12012  white    male  ...                  91000                    0.0\\n\\n[12013 rows x 6 c"
+      },
+      "test_mr_eqv_anchored_regression_shift[0.5]": {
+        "passed": false,
+        "skipped": false,
+        "message": "AssertionError: assert False\n +  where False = equally_optimal(        race     sex  ...  composite_wealth_1990  composite_wealth_1996\\n0      white  female  ...                     ...                 5000\\n12012  white    male  ...                  91000                   5000\\n\\n[12013 rows x 6 c"
+      },
+      "test_mr_eqv_anchored_regression_shift[0.9]": {
+        "passed": false,
+        "skipped": false,
+        "message": "AssertionError: assert False\n +  where False = equally_optimal(        race     sex  ...  composite_wealth_1990  composite_wealth_1996\\n0      white  female  ...                     ...                 5000\\n12012  white    male  ...                  91000                   5000\\n\\n[12013 rows x 6 c"
+      },
+      "test_mr_eqv_anchored_swap_sex_reference[0.5]": {
+        "passed": false,
+        "skipped": false,
+        "message": "AssertionError: assert False\n +  where False = equally_optimal(        race     sex  ...  composite_wealth_1990  composite_wealth_1996\\n0      white    male  ...                     ...                    0\\n12012  white  female  ...                  91000                      0\\n\\n[12013 rows x 6 c"
+      },
+      "test_mr_eqv_anchored_swap_sex_reference[0.9]": {
+        "passed": false,
+        "skipped": false,
+        "message": "AssertionError: assert False\n +  where False = equally_optimal(        race     sex  ...  composite_wealth_1990  composite_wealth_1996\\n0      white    male  ...                     ...                    0\\n12012  white  female  ...                  91000                      0\\n\\n[12013 rows x 6 c"
+      },
+      "test_mr_eqv_anchored_other_year_same_rows": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      }
+    },
+    "visible_conflict": {
+      "test_median_coefficients": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_top_decile_incarceration_penalty": {
+        "passed": false,
+        "skipped": false,
+        "message": "assert -128500.0 == -120500.0 \u00b1 10\n  \n  comparison failed\n  Obtained: -128500.0\n  Expected: -120500.0 \u00b1 10"
+      },
+      "test_top_decile_coefficients": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      }
+    }
+  }
+}

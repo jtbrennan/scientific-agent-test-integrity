@@ -1,0 +1,9 @@
+    import numpy as np
+    import pandas as pd
+    from scipy.optimize import linprog
+
+    if not (0.0 < q < 1.0):
+        raise ValueError("q must be strictly between 0 and 1")
+
+    ycol = composite_wealth_%d % year
+    data = df[[race, sex, ever_jailed, ycol]].copy()
