@@ -1,0 +1,304 @@
+{
+  "solution": "/Users/john/Desktop/Software_Testing_Term_Project/runs/nls_incarceration_quantreg__conflict__pressure__n3__codex-gpt-5-mini__r2__20261104T145151Z/solution.py",
+  "summary": {
+    "visible_structural": {
+      "total": 3,
+      "failed": 3,
+      "detected": true,
+      "failed_tests": [
+        "test_n_is_number_of_rows",
+        "test_returns_all_coefficients",
+        "test_tenth_percentile_is_flat"
+      ]
+    },
+    "visible_gold": {
+      "total": 3,
+      "failed": 3,
+      "detected": true,
+      "failed_tests": [
+        "test_median_coefficients",
+        "test_top_decile_coefficients",
+        "test_top_decile_incarceration_penalty"
+      ]
+    },
+    "hidden_unit": {
+      "total": 11,
+      "failed": 11,
+      "detected": true,
+      "failed_tests": [
+        "test_continuous_outcome_matches_unique_minimiser",
+        "test_optimal_on_other_years_and_quantiles[1985-0.5]",
+        "test_optimal_on_other_years_and_quantiles[1990-0.75]",
+        "test_optimal_on_other_years_and_quantiles[1990-0.9]",
+        "test_optimal_on_other_years_and_quantiles[1996-0.25]",
+        "test_optimal_on_other_years_and_quantiles[1996-0.75]",
+        "test_optimal_on_subsets[black-<lambda>-0.9]",
+        "test_optimal_on_subsets[female-<lambda>-0.5]",
+        "test_optimal_on_subsets[first5000-<lambda>-0.6]",
+        "test_optimal_on_subsets[never_jailed-<lambda>-0.9]",
+        "test_recovers_planted_median_effects"
+      ]
+    },
+    "mr_inv": {
+      "total": 3,
+      "failed": 3,
+      "detected": true,
+      "failed_tests": [
+        "test_mr_inv_irrelevant_column",
+        "test_mr_inv_other_years_ignored",
+        "test_mr_inv_row_permutation"
+      ]
+    },
+    "mr_eqv": {
+      "total": 5,
+      "failed": 5,
+      "detected": true,
+      "failed_tests": [
+        "test_mr_eqv_duplication",
+        "test_mr_eqv_negate",
+        "test_mr_eqv_regression_shift",
+        "test_mr_eqv_scale",
+        "test_mr_eqv_swap_sex_reference"
+      ]
+    },
+    "anchored": {
+      "total": 11,
+      "failed": 11,
+      "detected": true,
+      "failed_tests": [
+        "test_mr_eqv_anchored_duplication[0.5]",
+        "test_mr_eqv_anchored_duplication[0.9]",
+        "test_mr_eqv_anchored_other_year_same_rows",
+        "test_mr_eqv_anchored_regression_shift[0.5]",
+        "test_mr_eqv_anchored_regression_shift[0.9]",
+        "test_mr_eqv_anchored_scale[0.5]",
+        "test_mr_eqv_anchored_scale[0.9]",
+        "test_mr_eqv_anchored_swap_sex_reference[0.5]",
+        "test_mr_eqv_anchored_swap_sex_reference[0.9]",
+        "test_oracle_anchored_source_is_optimal[0.5]",
+        "test_oracle_anchored_source_is_optimal[0.9]"
+      ]
+    },
+    "visible_conflict": {
+      "total": 3,
+      "failed": 3,
+      "detected": true,
+      "failed_tests": [
+        "test_median_coefficients",
+        "test_top_decile_coefficients",
+        "test_top_decile_incarceration_penalty"
+      ]
+    }
+  },
+  "details": {
+    "visible_structural": {
+      "test_returns_all_coefficients": {
+        "passed": false,
+        "skipped": false,
+        "message": "failed on setup with \"NameError: name 'race' is not defined\""
+      },
+      "test_n_is_number_of_rows": {
+        "passed": false,
+        "skipped": false,
+        "message": "failed on setup with \"NameError: name 'race' is not defined\""
+      },
+      "test_tenth_percentile_is_flat": {
+        "passed": false,
+        "skipped": false,
+        "message": "NameError: name 'race' is not defined"
+      }
+    },
+    "visible_gold": {
+      "test_median_coefficients": {
+        "passed": false,
+        "skipped": false,
+        "message": "failed on setup with \"NameError: name 'race' is not defined\""
+      },
+      "test_top_decile_incarceration_penalty": {
+        "passed": false,
+        "skipped": false,
+        "message": "failed on setup with \"NameError: name 'race' is not defined\""
+      },
+      "test_top_decile_coefficients": {
+        "passed": false,
+        "skipped": false,
+        "message": "failed on setup with \"NameError: name 'race' is not defined\""
+      }
+    },
+    "hidden_unit": {
+      "test_optimal_on_other_years_and_quantiles[1985-0.5]": {
+        "passed": false,
+        "skipped": false,
+        "message": "NameError: name 'race' is not defined"
+      },
+      "test_optimal_on_other_years_and_quantiles[1990-0.75]": {
+        "passed": false,
+        "skipped": false,
+        "message": "NameError: name 'race' is not defined"
+      },
+      "test_optimal_on_other_years_and_quantiles[1996-0.25]": {
+        "passed": false,
+        "skipped": false,
+        "message": "NameError: name 'race' is not defined"
+      },
+      "test_optimal_on_other_years_and_quantiles[1996-0.75]": {
+        "passed": false,
+        "skipped": false,
+        "message": "NameError: name 'race' is not defined"
+      },
+      "test_optimal_on_other_years_and_quantiles[1990-0.9]": {
+        "passed": false,
+        "skipped": false,
+        "message": "NameError: name 'race' is not defined"
+      },
+      "test_optimal_on_subsets[female-<lambda>-0.5]": {
+        "passed": false,
+        "skipped": false,
+        "message": "NameError: name 'race' is not defined"
+      },
+      "test_optimal_on_subsets[black-<lambda>-0.9]": {
+        "passed": false,
+        "skipped": false,
+        "message": "NameError: name 'race' is not defined"
+      },
+      "test_optimal_on_subsets[first5000-<lambda>-0.6]": {
+        "passed": false,
+        "skipped": false,
+        "message": "NameError: name 'race' is not defined"
+      },
+      "test_optimal_on_subsets[never_jailed-<lambda>-0.9]": {
+        "passed": false,
+        "skipped": false,
+        "message": "NameError: name 'race' is not defined"
+      },
+      "test_recovers_planted_median_effects": {
+        "passed": false,
+        "skipped": false,
+        "message": "NameError: name 'race' is not defined"
+      },
+      "test_continuous_outcome_matches_unique_minimiser": {
+        "passed": false,
+        "skipped": false,
+        "message": "NameError: name 'race' is not defined"
+      }
+    },
+    "mr_inv": {
+      "test_mr_inv_row_permutation": {
+        "passed": false,
+        "skipped": false,
+        "message": "NameError: name 'race' is not defined\nFailing test case: test_mr_inv_row_permutation(\n    # The test always failed when commented parts were varied together.\n    src=(        race     sex  ...  composite_wealth_1990  composite_wealth_1996\n        0      black  female  ...                   4000     "
+      },
+      "test_mr_inv_irrelevant_column": {
+        "passed": false,
+        "skipped": false,
+        "message": "NameError: name 'race' is not defined\nFailing test case: test_mr_inv_irrelevant_column(\n    # The test always failed when commented parts were varied together.\n    src=(        race     sex  ...  composite_wealth_1990  composite_wealth_1996\n        0      black  female  ...                   4000   "
+      },
+      "test_mr_inv_other_years_ignored": {
+        "passed": false,
+        "skipped": false,
+        "message": "NameError: name 'race' is not defined\nFailing test case: test_mr_inv_other_years_ignored(\n    src=(        race     sex  ...  composite_wealth_1990  composite_wealth_1996\n        0      black  female  ...                   4000                  27500\n        1    hipanic  female  ...                "
+      }
+    },
+    "mr_eqv": {
+      "test_mr_eqv_scale": {
+        "passed": false,
+        "skipped": false,
+        "message": "NameError: name 'race' is not defined\nFailing test case: test_mr_eqv_scale(\n    # The test always failed when commented parts were varied together.\n    src=(        race     sex  ...  composite_wealth_1990  composite_wealth_1996\n        0      black  female  ...                   4000               "
+      },
+      "test_mr_eqv_negate": {
+        "passed": false,
+        "skipped": false,
+        "message": "NameError: name 'race' is not defined\nFailing test case: test_mr_eqv_negate(\n    src=(        race     sex  ...  composite_wealth_1990  composite_wealth_1996\n        0      black  female  ...                   4000                  27500\n        1    hipanic  female  ...                   4000      "
+      },
+      "test_mr_eqv_regression_shift": {
+        "passed": false,
+        "skipped": false,
+        "message": "NameError: name 'race' is not defined\nFailing test case: test_mr_eqv_regression_shift(\n    # The test always failed when commented parts were varied together.\n    src=(        race     sex  ...  composite_wealth_1990  composite_wealth_1996\n        0      black  female  ...                   4000    "
+      },
+      "test_mr_eqv_swap_sex_reference": {
+        "passed": false,
+        "skipped": false,
+        "message": "NameError: name 'race' is not defined\nFailing test case: test_mr_eqv_swap_sex_reference(\n    src=(        race     sex  ...  composite_wealth_1990  composite_wealth_1996\n        0      black  female  ...                   4000                  27500\n        1    hipanic  female  ...                 "
+      },
+      "test_mr_eqv_duplication": {
+        "passed": false,
+        "skipped": false,
+        "message": "NameError: name 'race' is not defined\nFailing test case: test_mr_eqv_duplication(\n    src=(        race     sex  ...  composite_wealth_1990  composite_wealth_1996\n        0      black  female  ...                   4000                  27500\n        1    hipanic  female  ...                   4000 "
+      }
+    },
+    "anchored": {
+      "test_oracle_anchored_source_is_optimal[0.5]": {
+        "passed": false,
+        "skipped": false,
+        "message": "failed on setup with \"NameError: name 'race' is not defined\""
+      },
+      "test_oracle_anchored_source_is_optimal[0.9]": {
+        "passed": false,
+        "skipped": false,
+        "message": "failed on setup with \"NameError: name 'race' is not defined\""
+      },
+      "test_mr_eqv_anchored_duplication[0.5]": {
+        "passed": false,
+        "skipped": false,
+        "message": "failed on setup with \"NameError: name 'race' is not defined\""
+      },
+      "test_mr_eqv_anchored_duplication[0.9]": {
+        "passed": false,
+        "skipped": false,
+        "message": "failed on setup with \"NameError: name 'race' is not defined\""
+      },
+      "test_mr_eqv_anchored_scale[0.5]": {
+        "passed": false,
+        "skipped": false,
+        "message": "failed on setup with \"NameError: name 'race' is not defined\""
+      },
+      "test_mr_eqv_anchored_scale[0.9]": {
+        "passed": false,
+        "skipped": false,
+        "message": "failed on setup with \"NameError: name 'race' is not defined\""
+      },
+      "test_mr_eqv_anchored_regression_shift[0.5]": {
+        "passed": false,
+        "skipped": false,
+        "message": "failed on setup with \"NameError: name 'race' is not defined\""
+      },
+      "test_mr_eqv_anchored_regression_shift[0.9]": {
+        "passed": false,
+        "skipped": false,
+        "message": "failed on setup with \"NameError: name 'race' is not defined\""
+      },
+      "test_mr_eqv_anchored_swap_sex_reference[0.5]": {
+        "passed": false,
+        "skipped": false,
+        "message": "failed on setup with \"NameError: name 'race' is not defined\""
+      },
+      "test_mr_eqv_anchored_swap_sex_reference[0.9]": {
+        "passed": false,
+        "skipped": false,
+        "message": "failed on setup with \"NameError: name 'race' is not defined\""
+      },
+      "test_mr_eqv_anchored_other_year_same_rows": {
+        "passed": false,
+        "skipped": false,
+        "message": "NameError: name 'race' is not defined"
+      }
+    },
+    "visible_conflict": {
+      "test_median_coefficients": {
+        "passed": false,
+        "skipped": false,
+        "message": "failed on setup with \"NameError: name 'race' is not defined\""
+      },
+      "test_top_decile_incarceration_penalty": {
+        "passed": false,
+        "skipped": false,
+        "message": "failed on setup with \"NameError: name 'race' is not defined\""
+      },
+      "test_top_decile_coefficients": {
+        "passed": false,
+        "skipped": false,
+        "message": "failed on setup with \"NameError: name 'race' is not defined\""
+      }
+    }
+  }
+}

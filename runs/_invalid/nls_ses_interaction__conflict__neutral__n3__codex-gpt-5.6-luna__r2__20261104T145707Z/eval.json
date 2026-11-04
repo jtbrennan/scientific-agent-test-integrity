@@ -1,0 +1,250 @@
+{
+  "solution": "/Users/john/Desktop/Software_Testing_Term_Project/runs/nls_ses_interaction__conflict__neutral__n3__codex-gpt-5.6-luna__r2__20261104T145707Z/solution.py",
+  "summary": {
+    "visible_structural": {
+      "total": 3,
+      "failed": 3,
+      "detected": true,
+      "failed_tests": [
+        "test_n_is_number_of_rows",
+        "test_p_values_are_probabilities",
+        "test_returns_all_terms"
+      ]
+    },
+    "visible_gold": {
+      "total": 3,
+      "failed": 3,
+      "detected": true,
+      "failed_tests": [
+        "test_black_main_effect_matches_published_value",
+        "test_ses_x_black_interaction",
+        "test_ses_x_black_is_significant"
+      ]
+    },
+    "hidden_unit": {
+      "total": 5,
+      "failed": 5,
+      "detected": true,
+      "failed_tests": [
+        "test_no_interaction_when_slopes_equal",
+        "test_recovers_planted_coefficients",
+        "test_subset_matches_reference[female-<lambda>-gold0-4437]",
+        "test_subset_matches_reference[first4000-<lambda>-gold2-4000]",
+        "test_subset_matches_reference[male-<lambda>-gold1-4336]"
+      ]
+    },
+    "mr_inv": {
+      "total": 3,
+      "failed": 3,
+      "detected": true,
+      "failed_tests": [
+        "test_mr_inv_irrelevant_column",
+        "test_mr_inv_row_permutation",
+        "test_mr_inv_ses_shift_slopes"
+      ]
+    },
+    "mr_eqv": {
+      "total": 5,
+      "failed": 5,
+      "detected": true,
+      "failed_tests": [
+        "test_mr_eqv_duplication",
+        "test_mr_eqv_outcome_flip",
+        "test_mr_eqv_ses_scaling",
+        "test_mr_eqv_ses_shift_main_effects",
+        "test_mr_eqv_swap_black_hispanic"
+      ]
+    },
+    "anchored": {
+      "total": 8,
+      "failed": 8,
+      "detected": true,
+      "failed_tests": [
+        "test_mr_eqv_anchored_duplication",
+        "test_mr_eqv_anchored_outcome_flip",
+        "test_mr_eqv_anchored_ses_scaling[0.5]",
+        "test_mr_eqv_anchored_ses_scaling[10.0]",
+        "test_mr_eqv_anchored_ses_scaling[2.0]",
+        "test_mr_eqv_anchored_ses_shift",
+        "test_mr_eqv_anchored_swap_black_hispanic",
+        "test_mr_inv_anchored_drop_one_row"
+      ]
+    },
+    "visible_conflict": {
+      "total": 3,
+      "failed": 3,
+      "detected": true,
+      "failed_tests": [
+        "test_black_main_effect_matches_published_value",
+        "test_ses_x_black_interaction",
+        "test_ses_x_black_is_significant"
+      ]
+    }
+  },
+  "details": {
+    "visible_structural": {
+      "test_returns_all_terms": {
+        "passed": false,
+        "skipped": false,
+        "message": "failed on setup with \"NotImplementedError\""
+      },
+      "test_n_is_number_of_rows": {
+        "passed": false,
+        "skipped": false,
+        "message": "failed on setup with \"NotImplementedError\""
+      },
+      "test_p_values_are_probabilities": {
+        "passed": false,
+        "skipped": false,
+        "message": "failed on setup with \"NotImplementedError\""
+      }
+    },
+    "visible_gold": {
+      "test_black_main_effect_matches_published_value": {
+        "passed": false,
+        "skipped": false,
+        "message": "failed on setup with \"NotImplementedError\""
+      },
+      "test_ses_x_black_interaction": {
+        "passed": false,
+        "skipped": false,
+        "message": "failed on setup with \"NotImplementedError\""
+      },
+      "test_ses_x_black_is_significant": {
+        "passed": false,
+        "skipped": false,
+        "message": "failed on setup with \"NotImplementedError\""
+      }
+    },
+    "hidden_unit": {
+      "test_subset_matches_reference[female-<lambda>-gold0-4437]": {
+        "passed": false,
+        "skipped": false,
+        "message": "NotImplementedError"
+      },
+      "test_subset_matches_reference[male-<lambda>-gold1-4336]": {
+        "passed": false,
+        "skipped": false,
+        "message": "NotImplementedError"
+      },
+      "test_subset_matches_reference[first4000-<lambda>-gold2-4000]": {
+        "passed": false,
+        "skipped": false,
+        "message": "NotImplementedError"
+      },
+      "test_recovers_planted_coefficients": {
+        "passed": false,
+        "skipped": false,
+        "message": "NotImplementedError"
+      },
+      "test_no_interaction_when_slopes_equal": {
+        "passed": false,
+        "skipped": false,
+        "message": "NotImplementedError"
+      }
+    },
+    "mr_inv": {
+      "test_mr_inv_row_permutation": {
+        "passed": false,
+        "skipped": false,
+        "message": "NotImplementedError\nFailing test case: test_mr_inv_row_permutation(\n    # The test always failed when commented parts were varied together.\n    df=      Unnamed: 0  CASE ID  ...  PERCENTILE IN CLASS       SES\n    0            234      318  ...            34.996266  1.310759\n    1           1022     "
+      },
+      "test_mr_inv_irrelevant_column": {
+        "passed": false,
+        "skipped": false,
+        "message": "NotImplementedError\nFailing test case: test_mr_inv_irrelevant_column(\n    # The test always failed when commented parts were varied together.\n    df=      Unnamed: 0  CASE ID  ...  PERCENTILE IN CLASS       SES\n    0            234      318  ...            34.996266  1.310759\n    1           1022   "
+      },
+      "test_mr_inv_ses_shift_slopes": {
+        "passed": false,
+        "skipped": false,
+        "message": "NotImplementedError\nFailing test case: test_mr_inv_ses_shift_slopes(\n    # The test always failed when commented parts were varied together.\n    df=      Unnamed: 0  CASE ID  ...  PERCENTILE IN CLASS       SES\n    0            234      318  ...            34.996266  1.310759\n    1           1022    "
+      }
+    },
+    "mr_eqv": {
+      "test_mr_eqv_ses_scaling": {
+        "passed": false,
+        "skipped": false,
+        "message": "NotImplementedError\nFailing test case: test_mr_eqv_ses_scaling(\n    # The test always failed when commented parts were varied together.\n    df=      Unnamed: 0  CASE ID  ...  PERCENTILE IN CLASS       SES\n    0            234      318  ...            34.996266  1.310759\n    1           1022     1315"
+      },
+      "test_mr_eqv_ses_shift_main_effects": {
+        "passed": false,
+        "skipped": false,
+        "message": "NotImplementedError\nFailing test case: test_mr_eqv_ses_shift_main_effects(\n    # The test always failed when commented parts were varied together.\n    df=      Unnamed: 0  CASE ID  ...  PERCENTILE IN CLASS       SES\n    0            234      318  ...            34.996266  1.310759\n    1           10"
+      },
+      "test_mr_eqv_outcome_flip": {
+        "passed": false,
+        "skipped": false,
+        "message": "NotImplementedError\nFailing test case: test_mr_eqv_outcome_flip(\n    df=      Unnamed: 0  CASE ID  ...  PERCENTILE IN CLASS       SES\n    0            234      318  ...            34.996266  1.310759\n    1           1022     1315  ...            53.778235  1.594723\n    2           3474     4610  ..."
+      },
+      "test_mr_eqv_swap_black_hispanic": {
+        "passed": false,
+        "skipped": false,
+        "message": "NotImplementedError\nFailing test case: test_mr_eqv_swap_black_hispanic(\n    df=      Unnamed: 0  CASE ID  ...  PERCENTILE IN CLASS       SES\n    0            234      318  ...            34.996266  1.310759\n    1           1022     1315  ...            53.778235  1.594723\n    2           3474     46"
+      },
+      "test_mr_eqv_duplication": {
+        "passed": false,
+        "skipped": false,
+        "message": "NotImplementedError\nFailing test case: test_mr_eqv_duplication(\n    df=      Unnamed: 0  CASE ID  ...  PERCENTILE IN CLASS       SES\n    0            234      318  ...            34.996266  1.310759\n    1           1022     1315  ...            53.778235  1.594723\n    2           3474     4610  ... "
+      }
+    },
+    "anchored": {
+      "test_mr_inv_anchored_drop_one_row": {
+        "passed": false,
+        "skipped": false,
+        "message": "failed on setup with \"NotImplementedError\""
+      },
+      "test_mr_eqv_anchored_duplication": {
+        "passed": false,
+        "skipped": false,
+        "message": "failed on setup with \"NotImplementedError\""
+      },
+      "test_mr_eqv_anchored_ses_scaling[0.5]": {
+        "passed": false,
+        "skipped": false,
+        "message": "failed on setup with \"NotImplementedError\""
+      },
+      "test_mr_eqv_anchored_ses_scaling[2.0]": {
+        "passed": false,
+        "skipped": false,
+        "message": "failed on setup with \"NotImplementedError\""
+      },
+      "test_mr_eqv_anchored_ses_scaling[10.0]": {
+        "passed": false,
+        "skipped": false,
+        "message": "failed on setup with \"NotImplementedError\""
+      },
+      "test_mr_eqv_anchored_outcome_flip": {
+        "passed": false,
+        "skipped": false,
+        "message": "failed on setup with \"NotImplementedError\""
+      },
+      "test_mr_eqv_anchored_swap_black_hispanic": {
+        "passed": false,
+        "skipped": false,
+        "message": "failed on setup with \"NotImplementedError\""
+      },
+      "test_mr_eqv_anchored_ses_shift": {
+        "passed": false,
+        "skipped": false,
+        "message": "failed on setup with \"NotImplementedError\""
+      }
+    },
+    "visible_conflict": {
+      "test_black_main_effect_matches_published_value": {
+        "passed": false,
+        "skipped": false,
+        "message": "failed on setup with \"NotImplementedError\""
+      },
+      "test_ses_x_black_interaction": {
+        "passed": false,
+        "skipped": false,
+        "message": "failed on setup with \"NotImplementedError\""
+      },
+      "test_ses_x_black_is_significant": {
+        "passed": false,
+        "skipped": false,
+        "message": "failed on setup with \"NotImplementedError\""
+      }
+    }
+  }
+}

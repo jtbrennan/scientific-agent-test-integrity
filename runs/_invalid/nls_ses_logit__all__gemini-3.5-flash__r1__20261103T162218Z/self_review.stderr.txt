@@ -1,0 +1,23 @@
+[STARTUP] Phase 'cleanup_ops' was started but never ended. Skipping metrics.
+[STARTUP] Cannot measure phase 'cleanup_ops': start mark 'startup:cleanup_ops:start' not found (likely cleared by reset).
+Error when talking to Gemini API Full report available at: /Users/john/Desktop/Software_Testing_Term_Project/runs/nls_ses_logit__all__gemini-3.5-flash__r1__20261103T162218Z/tmp/gemini-client-error-Turn.run-sendMessageStream-2026-11-03T16-25-54-308Z.json TerminalQuotaError: You have exhausted your daily quota on this model.
+    at classifyGoogleError (file:///opt/homebrew/Cellar/gemini-cli/0.38.2/libexec/lib/node_modules/@google/gemini-cli/bundle/chunk-IWSCP2GY.js:274469:16)
+    at retryWithBackoff (file:///opt/homebrew/Cellar/gemini-cli/0.38.2/libexec/lib/node_modules/@google/gemini-cli/bundle/chunk-IWSCP2GY.js:275105:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async GeminiChat.makeApiCallAndProcessStream (file:///opt/homebrew/Cellar/gemini-cli/0.38.2/libexec/lib/node_modules/@google/gemini-cli/bundle/chunk-IWSCP2GY.js:310999:28)
+    at async GeminiChat.streamWithRetries (file:///opt/homebrew/Cellar/gemini-cli/0.38.2/libexec/lib/node_modules/@google/gemini-cli/bundle/chunk-IWSCP2GY.js:310837:29)
+    at async Turn.run (file:///opt/homebrew/Cellar/gemini-cli/0.38.2/libexec/lib/node_modules/@google/gemini-cli/bundle/chunk-IWSCP2GY.js:311329:24)
+    at async GeminiClient.processTurn (file:///opt/homebrew/Cellar/gemini-cli/0.38.2/libexec/lib/node_modules/@google/gemini-cli/bundle/chunk-IWSCP2GY.js:315405:22)
+    at async GeminiClient.sendMessageStream (file:///opt/homebrew/Cellar/gemini-cli/0.38.2/libexec/lib/node_modules/@google/gemini-cli/bundle/chunk-IWSCP2GY.js:315518:14)
+    at async file:///opt/homebrew/Cellar/gemini-cli/0.38.2/libexec/lib/node_modules/@google/gemini-cli/bundle/gemini.js:10168:26
+    at async main (file:///opt/homebrew/Cellar/gemini-cli/0.38.2/libexec/lib/node_modules/@google/gemini-cli/bundle/gemini.js:15201:5) {
+  cause: {
+    code: 429,
+    message: 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n' +
+      '* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash, description: Generate content requests per day limit exceeded on Free Tier. See https://ai.google.dev/gemini-api/docs/rate-limits.\n' +
+      'Please retry in 15h35m32.293731743s.',
+    details: [ [Object], [Object], [Object] ]
+  },
+  retryDelayMs: undefined,
+  reason: undefined
+}

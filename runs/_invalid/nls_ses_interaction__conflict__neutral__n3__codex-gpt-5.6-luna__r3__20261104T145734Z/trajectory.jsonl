@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"01a1a710-becc-7702-95cf-cfd4aa4f1b07"}
+{"type":"turn.started"}
+{"type":"error","message":"Quota exceeded. Check your plan and billing details."}
+{"type":"turn.failed","error":{"message":"Quota exceeded. Check your plan and billing details."}}

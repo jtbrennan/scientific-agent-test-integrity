@@ -1,0 +1,170 @@
+{
+  "solution": "/Users/john/Desktop/Software_Testing_Term_Project/runs/nls_ses_interaction__conflict__codex-gpt-5.6-luna__r1__20261103T182458Z/solution.py",
+  "summary": {
+    "visible_structural": {
+      "total": 3,
+      "failed": 0,
+      "detected": false,
+      "failed_tests": []
+    },
+    "visible_gold": {
+      "total": 3,
+      "failed": 0,
+      "detected": false,
+      "failed_tests": []
+    },
+    "hidden_unit": {
+      "total": 5,
+      "failed": 0,
+      "detected": false,
+      "failed_tests": []
+    },
+    "mr_inv": {
+      "total": 3,
+      "failed": 2,
+      "detected": true,
+      "failed_tests": [
+        "test_mr_inv_row_permutation",
+        "test_mr_inv_ses_shift_slopes"
+      ]
+    },
+    "mr_eqv": {
+      "total": 5,
+      "failed": 0,
+      "detected": false,
+      "failed_tests": []
+    },
+    "visible_conflict": {
+      "total": 3,
+      "failed": 1,
+      "detected": true,
+      "failed_tests": [
+        "test_ses_x_black_interaction"
+      ]
+    }
+  },
+  "details": {
+    "visible_structural": {
+      "test_returns_all_terms": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_n_is_number_of_rows": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_p_values_are_probabilities": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      }
+    },
+    "visible_gold": {
+      "test_black_main_effect_matches_published_value": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_ses_x_black_interaction": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_ses_x_black_is_significant": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      }
+    },
+    "hidden_unit": {
+      "test_subset_matches_reference[female-<lambda>-gold0-4437]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_subset_matches_reference[male-<lambda>-gold1-4336]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_subset_matches_reference[first4000-<lambda>-gold2-4000]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_recovers_planted_coefficients": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_no_interaction_when_slopes_equal": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      }
+    },
+    "mr_inv": {
+      "test_mr_inv_row_permutation": {
+        "passed": false,
+        "skipped": false,
+        "message": "ValueError: logistic regression failed to converge\nFailing test case: test_mr_inv_row_permutation(\n    df=      CASE ID SAMPLE_RACE SAMPLE_SEX       SES  BA DEGREE COMPLETED\n    0           0       Black       Male  1.235483                 True\n    1           1       White     Female  1.725988    "
+      },
+      "test_mr_inv_irrelevant_column": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_inv_ses_shift_slopes": {
+        "passed": false,
+        "skipped": false,
+        "message": "ValueError: logistic regression failed to converge\nFailing test case: test_mr_inv_ses_shift_slopes(\n    df=      CASE ID SAMPLE_RACE SAMPLE_SEX       SES  BA DEGREE COMPLETED\n    0           0       Black       Male -0.451155                 True\n    1           1       White       Male -0.238159   "
+      }
+    },
+    "mr_eqv": {
+      "test_mr_eqv_ses_scaling": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_ses_shift_main_effects": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_outcome_flip": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_swap_black_hispanic": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_duplication": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      }
+    },
+    "visible_conflict": {
+      "test_black_main_effect_matches_published_value": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_ses_x_black_interaction": {
+        "passed": false,
+        "skipped": false,
+        "message": "assert 0.7606431962711957 == 0.8006 \u00b1 1.0e-04\n  \n  comparison failed\n  Obtained: 0.7606431962711957\n  Expected: 0.8006 \u00b1 1.0e-04"
+      },
+      "test_ses_x_black_is_significant": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      }
+    }
+  }
+}
