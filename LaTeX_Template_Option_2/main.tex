@@ -12,7 +12,6 @@
 \usepackage{multirow}
 \usepackage{setspace}
 \usepackage{ragged2e}
-\usepackage{lipsum}
 \usepackage{hyperref}
 
 \renewcommand{\labelitemi}{$\bullet$}
@@ -51,12 +50,18 @@
 	\clearpage
 	
 	\begin{abstract}
-		The abstract should briefly summarize the contents of the paper
-		in 150--250 words.
+		Visible tests can reward code that reproduces expected answers without
+		performing the requested scientific analysis correctly. We investigate
+		this risk across six scientific analysis tasks and 190 valid agent runs,
+		comparing hidden unit tests, metamorphic checks, and agent self-reviews.
+		Preliminary results show that checks anchored to the supplied dataset
+		expose shortcuts missed by other hidden checks. Agents also acknowledge
+		shortcuts more consistently during review than in their final answers.
+		These observations indicate that passing visible tests and receiving a
+		confident summary are insufficient evidence of correctness, motivating
+		independent checks of scientific code and its reported results.
 		
-		\lipsum[1-2]
-		
-		\keywords{First keyword \and Second keyword \and Another keyword}
+		\keywords{Software testing \and AI agents \and Metamorphic testing \and Mutation testing \and Scientific software}
 	\end{abstract}
 	
 	\input{Introduction}
