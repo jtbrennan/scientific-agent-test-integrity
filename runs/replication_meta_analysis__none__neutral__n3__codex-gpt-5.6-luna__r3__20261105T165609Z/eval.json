@@ -1,0 +1,365 @@
+{
+  "solution": "/Users/john/Desktop/Software_Testing_Term_Project/runs/replication_meta_analysis__none__neutral__n3__codex-gpt-5.6-luna__r3__20261105T165609Z/solution.py",
+  "summary": {
+    "visible_structural": {
+      "total": 3,
+      "failed": 0,
+      "detected": false,
+      "failed_tests": []
+    },
+    "visible_gold": {
+      "total": 3,
+      "failed": 0,
+      "detected": false,
+      "failed_tests": []
+    },
+    "hidden_unit": {
+      "total": 18,
+      "failed": 0,
+      "detected": false,
+      "failed_tests": []
+    },
+    "mr_inv": {
+      "total": 4,
+      "failed": 0,
+      "detected": false,
+      "failed_tests": []
+    },
+    "mr_eqv": {
+      "total": 6,
+      "failed": 0,
+      "detected": false,
+      "failed_tests": []
+    },
+    "anchored": {
+      "total": 23,
+      "failed": 0,
+      "detected": false,
+      "failed_tests": []
+    },
+    "visible_conflict": {
+      "total": 3,
+      "failed": 1,
+      "detected": true,
+      "failed_tests": [
+        "test_pooled_shrinkage_all_pairs"
+      ]
+    }
+  },
+  "details": {
+    "visible_structural": {
+      "test_returns_required_keys_and_k": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_ci_is_mu_plus_minus_1_96_se": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_heterogeneity_statistics_in_range": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      }
+    },
+    "visible_gold": {
+      "test_pooled_shrinkage_all_pairs": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_between_study_variance_all_pairs": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_psychology_project": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      }
+    },
+    "hidden_unit": {
+      "test_subset_matches_reference[economics]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_subset_matches_reference[cognitive]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_subset_matches_reference[social]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_subset_matches_reference[first30]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_subset_matches_reference[last40]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_subset_matches_statsmodels[economics]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_subset_matches_statsmodels[cognitive]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_subset_matches_statsmodels[social]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_subset_matches_statsmodels[last40]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_homogeneous_subset_truncates_tau2": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_identical_effects_q_zero": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_hand_checkable_two_studies": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_hand_checkable_three_studies": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_hand_checkable_unequal_weights": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_strong_heterogeneity_synthetic": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_no_shrinkage_synthetic_not_significant": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mixed_projects_filtering": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_too_few_pairs_raises": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      }
+    },
+    "mr_inv": {
+      "test_mr_inv_row_permutation": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_inv_irrelevant_columns": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_inv_filter_inside_vs_before": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_inv_adding_other_project_rows": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      }
+    },
+    "mr_eqv": {
+      "test_mr_eqv_shift_original_effects": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_swap_original_and_replication": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_scale_effects_and_ses": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_project_relabel": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_duplication": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_add_uninformative_study": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      }
+    },
+    "anchored": {
+      "test_mr_eqv_anchored_shift[None]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_shift[Psychology]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_shift[Experimental Economics]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_negate[None]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_negate[Psychology]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_negate[Experimental Economics]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_scale[0.5-None]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_scale[0.5-Psychology]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_scale[0.5-Experimental Economics]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_scale[3.0-None]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_scale[3.0-Psychology]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_scale[3.0-Experimental Economics]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_inv_anchored_permute[None]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_inv_anchored_permute[Psychology]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_inv_anchored_permute[Experimental Economics]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_inv_anchored_drop_one_row[None]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_inv_anchored_drop_one_row[Psychology]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_inv_anchored_drop_one_row[Experimental Economics]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_project_relabel[Psychology]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_project_relabel[Experimental Economics]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_duplication[None]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_duplication[Psychology]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_duplication[Experimental Economics]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      }
+    },
+    "visible_conflict": {
+      "test_pooled_shrinkage_all_pairs": {
+        "passed": false,
+        "skipped": false,
+        "message": "assert 0.21024074884261215 == 0.2402 \u00b1 1.0e-04\n  \n  comparison failed\n  Obtained: 0.21024074884261215\n  Expected: 0.2402 \u00b1 1.0e-04"
+      },
+      "test_between_study_variance_all_pairs": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_psychology_project": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      }
+    }
+  }
+}

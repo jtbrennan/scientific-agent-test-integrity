@@ -1,0 +1,283 @@
+{
+  "solution": "/Users/john/Desktop/Software_Testing_Term_Project/runs/fish_diversity_poisson__conflict__neutral__n3__codex-gpt-5.6-luna__r3__20261105T172903Z/solution.py",
+  "summary": {
+    "visible_structural": {
+      "total": 3,
+      "failed": 0,
+      "detected": false,
+      "failed_tests": []
+    },
+    "visible_gold": {
+      "total": 3,
+      "failed": 1,
+      "detected": true,
+      "failed_tests": [
+        "test_log_area_coef"
+      ]
+    },
+    "hidden_unit": {
+      "total": 10,
+      "failed": 0,
+      "detected": false,
+      "failed_tests": []
+    },
+    "mr_inv": {
+      "total": 3,
+      "failed": 0,
+      "detected": false,
+      "failed_tests": []
+    },
+    "mr_eqv": {
+      "total": 7,
+      "failed": 2,
+      "detected": true,
+      "failed_tests": [
+        "test_mr_eqv_area_power",
+        "test_mr_eqv_area_rescale_intercept"
+      ]
+    },
+    "anchored": {
+      "total": 13,
+      "failed": 4,
+      "detected": true,
+      "failed_tests": [
+        "test_mr_eqv_anchored_area_rescale[0.01]",
+        "test_mr_eqv_anchored_area_rescale[1000000.0]",
+        "test_mr_eqv_anchored_area_squared",
+        "test_mr_eqv_anchored_duplication"
+      ]
+    },
+    "visible_conflict": {
+      "total": 3,
+      "failed": 0,
+      "detected": false,
+      "failed_tests": []
+    }
+  },
+  "details": {
+    "visible_structural": {
+      "test_returns_required_keys": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_n_is_number_of_rows": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_deviance_and_p_values_are_valid": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      }
+    },
+    "visible_gold": {
+      "test_log_area_coef": {
+        "passed": false,
+        "skipped": false,
+        "message": "assert 0.1844 == 0.1744 \u00b1 1.0e-04\n  \n  comparison failed\n  Obtained: 0.1844\n  Expected: 0.1744 \u00b1 1.0e-04"
+      },
+      "test_bio1_std_err": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_residual_deviance": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      }
+    },
+    "hidden_unit": {
+      "test_subset_matches_reference[south-<lambda>-gold0-7818.975347461-220]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_subset_matches_reference[north-<lambda>-gold1-15544.385961671-240]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_subset_matches_reference[first300-<lambda>-gold2-17475.345428413-300]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_recovers_planted_coefficients": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_null_precip_effect_not_significant_and_zero_counts": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_random_subset_matches_oracle[1]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_random_subset_matches_oracle[2]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_random_subset_matches_oracle[3]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_random_subset_matches_oracle[4]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_random_subset_matches_oracle[5]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      }
+    },
+    "mr_inv": {
+      "test_mr_inv_row_permutation": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_inv_irrelevant_columns": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_inv_area_rescale_slopes": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      }
+    },
+    "mr_eqv": {
+      "test_mr_eqv_area_rescale_intercept": {
+        "passed": false,
+        "skipped": false,
+        "message": "assert 0.3978210823819129 == 0.17897444779970667 \u00b1 5.7e-04\n  \n  comparison failed\n  Obtained: 0.3978210823819129\n  Expected: 0.17897444779970667 \u00b1 5.7e-04\nFailing test case: test_mr_eqv_area_rescale_intercept(\n    df=       HYBAS_ID        lat  ...          area  diversity\n    0    6050000000 -35.16"
+      },
+      "test_mr_eqv_area_power": {
+        "passed": false,
+        "skipped": false,
+        "message": "AssertionError: assert False\n +  where False = coef_close(0.1844, (0.1844 / 2.0), {'terms': {'intercept': {'coef': 0.7736414265763704, 'std_err': 0.045283225447681215, 'p_value': 1.9358367031815e-65},...oef': 0.41731005587586156, 'std_err': 0.006740452621677696, 'p_value': 0.0}}, 'deviance': 24546.4"
+      },
+      "test_mr_eqv_bio1_shift": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_bio1_negation": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_precip_unit_scaling": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_duplication": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_count_scaling": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      }
+    },
+    "anchored": {
+      "test_mr_inv_anchored_drop_one_row[0]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_inv_anchored_drop_one_row[229]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_inv_anchored_drop_one_row[459]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_inv_anchored_permutation": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_duplication": {
+        "passed": false,
+        "skipped": false,
+        "message": "AssertionError: log_area\nassert (False)\n +  where False = close(0.17440754818447377, 0.1844)\n +    where 0.17440754818447377 = c({'terms': {'intercept': {'coef': 0.7736414264614392, 'std_err': 0.0320200757884626, 'p_value': 5.702886869869768e-129}...coef': 0.4173100558723307, 'std_err': 0.0047662197"
+      },
+      "test_mr_eqv_anchored_bio1_shift[-5.0]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_bio1_shift[3.0]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_area_rescale[1000000.0]": {
+        "passed": false,
+        "skipped": false,
+        "message": "assert -1.6358878967400645 == -1.7739387204...3 \u00b1 0.00177394\n  \n  comparison failed\n  Obtained: -1.6358878967400645\n  Expected: -1.7739387204271713 \u00b1 0.00177394"
+      },
+      "test_mr_eqv_anchored_area_rescale[0.01]": {
+        "passed": false,
+        "skipped": false,
+        "message": "assert 1.5768178676832532 == 1.622834808757645 \u00b1 0.00162283\n  \n  comparison failed\n  Obtained: 1.5768178676832532\n  Expected: 1.622834808757645 \u00b1 0.00162283"
+      },
+      "test_mr_eqv_anchored_area_squared": {
+        "passed": false,
+        "skipped": false,
+        "message": "AssertionError: assert (False)\n +  where False = close(0.1844, (0.1844 / 2))\n +    where 0.1844 = c({'terms': {'intercept': {'coef': 0.7736414264614415, 'std_err': 0.045283225448255124, 'p_value': 1.935836794591392e-65...{'coef': 0.4173100558723305, 'std_err': 0.00674045262170781, 'p_value': 0.0}}, "
+      },
+      "test_mr_eqv_anchored_precip_units[0.1]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_precip_units[25.4]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_count_doubling": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      }
+    },
+    "visible_conflict": {
+      "test_log_area_coef": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_bio1_std_err": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_residual_deviance": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      }
+    }
+  }
+}

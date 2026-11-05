@@ -1,0 +1,287 @@
+{
+  "solution": "/Users/john/Desktop/Software_Testing_Term_Project/runs/fish_diversity_poisson__some__pressure__n3__codex-gpt-5.6-luna__r1__20261105T172049Z/solution.py",
+  "summary": {
+    "visible_structural": {
+      "total": 3,
+      "failed": 0,
+      "detected": false,
+      "failed_tests": []
+    },
+    "visible_gold": {
+      "total": 3,
+      "failed": 0,
+      "detected": false,
+      "failed_tests": []
+    },
+    "hidden_unit": {
+      "total": 10,
+      "failed": 2,
+      "detected": true,
+      "failed_tests": [
+        "test_recovers_planted_coefficients",
+        "test_subset_matches_reference[south-<lambda>-gold0-7818.975347461-220]"
+      ]
+    },
+    "mr_inv": {
+      "total": 3,
+      "failed": 3,
+      "detected": true,
+      "failed_tests": [
+        "test_mr_inv_area_rescale_slopes",
+        "test_mr_inv_irrelevant_columns",
+        "test_mr_inv_row_permutation"
+      ]
+    },
+    "mr_eqv": {
+      "total": 7,
+      "failed": 4,
+      "detected": true,
+      "failed_tests": [
+        "test_mr_eqv_area_power",
+        "test_mr_eqv_bio1_negation",
+        "test_mr_eqv_count_scaling",
+        "test_mr_eqv_duplication"
+      ]
+    },
+    "anchored": {
+      "total": 13,
+      "failed": 0,
+      "detected": false,
+      "failed_tests": []
+    },
+    "visible_conflict": {
+      "total": 3,
+      "failed": 1,
+      "detected": true,
+      "failed_tests": [
+        "test_log_area_coef"
+      ]
+    }
+  },
+  "details": {
+    "visible_structural": {
+      "test_returns_required_keys": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_n_is_number_of_rows": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_deviance_and_p_values_are_valid": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      }
+    },
+    "visible_gold": {
+      "test_log_area_coef": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_bio1_std_err": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_residual_deviance": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      }
+    },
+    "hidden_unit": {
+      "test_subset_matches_reference[south-<lambda>-gold0-7818.975347461-220]": {
+        "passed": false,
+        "skipped": false,
+        "message": "RuntimeError: Poisson maximum-likelihood optimization did not converge"
+      },
+      "test_subset_matches_reference[north-<lambda>-gold1-15544.385961671-240]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_subset_matches_reference[first300-<lambda>-gold2-17475.345428413-300]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_recovers_planted_coefficients": {
+        "passed": false,
+        "skipped": false,
+        "message": "RuntimeError: Poisson maximum-likelihood optimization did not converge"
+      },
+      "test_null_precip_effect_not_significant_and_zero_counts": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_random_subset_matches_oracle[1]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_random_subset_matches_oracle[2]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_random_subset_matches_oracle[3]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_random_subset_matches_oracle[4]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_random_subset_matches_oracle[5]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      }
+    },
+    "mr_inv": {
+      "test_mr_inv_row_permutation": {
+        "passed": false,
+        "skipped": false,
+        "message": "RuntimeError: Poisson maximum-likelihood optimization did not converge\nFailing test case: test_mr_inv_row_permutation(\n    df=       HYBAS_ID       long        lat  ...  soil_div     area  diversity\n    0    6050709820 -50.335250 -19.958798  ...  0.124474   8325.4         53\n    1    6050007090 -50."
+      },
+      "test_mr_inv_irrelevant_columns": {
+        "passed": false,
+        "skipped": false,
+        "message": "RuntimeError: Poisson maximum-likelihood optimization did not converge\nFailing test case: test_mr_inv_irrelevant_columns(\n    df=       HYBAS_ID       long        lat  ...  soil_div     area  diversity\n    0    6050681720 -49.045573 -19.169873  ...  0.124444  14430.4         51\n    1    6050818840 -"
+      },
+      "test_mr_inv_area_rescale_slopes": {
+        "passed": false,
+        "skipped": false,
+        "message": "RuntimeError: Poisson maximum-likelihood optimization did not converge\nFailing test case: test_mr_inv_area_rescale_slopes(\n    df=       HYBAS_ID       long        lat  ...  soil_div      area  diversity\n    0    6050457840 -55.994686  -9.710200  ...  0.507588   19466.2        204\n    1    605096024"
+      }
+    },
+    "mr_eqv": {
+      "test_mr_eqv_area_rescale_intercept": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_area_power": {
+        "passed": false,
+        "skipped": false,
+        "message": "RuntimeError: Poisson maximum-likelihood optimization did not converge\nFailing test case: test_mr_eqv_area_power(\n    df=       HYBAS_ID        lat  ...           area  diversity\n    0    6050000000  11.749886  ...   20410.788256          5\n    1    6050000001 -21.125904  ...   19249.104817         "
+      },
+      "test_mr_eqv_bio1_shift": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_bio1_negation": {
+        "passed": false,
+        "skipped": false,
+        "message": "RuntimeError: Poisson maximum-likelihood optimization did not converge\nFailing test case: test_mr_eqv_bio1_negation(\n    df=       HYBAS_ID       long        lat  ...  soil_div     area  diversity\n    0    6050546360 -46.947546 -13.461949  ...  0.206608  60333.9         79\n    1    6050481670 -42.79"
+      },
+      "test_mr_eqv_precip_unit_scaling": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_duplication": {
+        "passed": false,
+        "skipped": false,
+        "message": "RuntimeError: Poisson maximum-likelihood optimization did not converge\nFailing test case: test_mr_eqv_duplication(\n    df=       HYBAS_ID       long        lat  ...  soil_div      area  diversity\n    0    6050099060 -58.624775   5.775285  ...  1.604774    4022.7        144\n    1    6050040500 -67.61"
+      },
+      "test_mr_eqv_count_scaling": {
+        "passed": false,
+        "skipped": false,
+        "message": "RuntimeError: Poisson maximum-likelihood optimization did not converge\nFailing test case: test_mr_eqv_count_scaling(\n    df=       HYBAS_ID       long        lat  ...  soil_div     area  diversity\n    0    6050709820 -50.335250 -19.958798  ...  0.124474   8325.4         53\n    1    6050007090 -50.09"
+      }
+    },
+    "anchored": {
+      "test_mr_inv_anchored_drop_one_row[0]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_inv_anchored_drop_one_row[229]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_inv_anchored_drop_one_row[459]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_inv_anchored_permutation": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_duplication": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_bio1_shift[-5.0]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_bio1_shift[3.0]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_area_rescale[1000000.0]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_area_rescale[0.01]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_area_squared": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_precip_units[0.1]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_precip_units[25.4]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_count_doubling": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      }
+    },
+    "visible_conflict": {
+      "test_log_area_coef": {
+        "passed": false,
+        "skipped": false,
+        "message": "assert 0.17440754818447374 == 0.1844 \u00b1 1.0e-04\n  \n  comparison failed\n  Obtained: 0.17440754818447374\n  Expected: 0.1844 \u00b1 1.0e-04"
+      },
+      "test_bio1_std_err": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_residual_deviance": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      }
+    }
+  }
+}

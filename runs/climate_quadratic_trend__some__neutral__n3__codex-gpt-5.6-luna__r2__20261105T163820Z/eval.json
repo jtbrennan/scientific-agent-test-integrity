@@ -1,0 +1,265 @@
+{
+  "solution": "/Users/john/Desktop/Software_Testing_Term_Project/runs/climate_quadratic_trend__some__neutral__n3__codex-gpt-5.6-luna__r2__20261105T163820Z/solution.py",
+  "summary": {
+    "visible_structural": {
+      "total": 3,
+      "failed": 0,
+      "detected": false,
+      "failed_tests": []
+    },
+    "visible_gold": {
+      "total": 3,
+      "failed": 0,
+      "detected": false,
+      "failed_tests": []
+    },
+    "hidden_unit": {
+      "total": 10,
+      "failed": 0,
+      "detected": false,
+      "failed_tests": []
+    },
+    "mr_inv": {
+      "total": 3,
+      "failed": 0,
+      "detected": false,
+      "failed_tests": []
+    },
+    "mr_eqv": {
+      "total": 5,
+      "failed": 0,
+      "detected": false,
+      "failed_tests": []
+    },
+    "anchored": {
+      "total": 13,
+      "failed": 0,
+      "detected": false,
+      "failed_tests": []
+    },
+    "visible_conflict": {
+      "total": 3,
+      "failed": 1,
+      "detected": true,
+      "failed_tests": [
+        "test_coefficients"
+      ]
+    }
+  },
+  "details": {
+    "visible_structural": {
+      "test_returns_required_keys": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_n_and_fitted_years": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_fitted_is_quadratic_in_coef": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      }
+    },
+    "visible_gold": {
+      "test_coefficients": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_std_err": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_residual_sd": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      }
+    },
+    "hidden_unit": {
+      "test_grid_point_matches_oracle[lat60_lon315-60.0-315.0-<lambda>-coef0-se0-1.185056523-240]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_grid_point_matches_oracle[lat40_lon262.5-40.0-262.5-<lambda>-coef1-se1-1.173145955-240]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_grid_point_matches_oracle[lat30_lon285-30.0-285.0-<lambda>-coef2-se2-0.3651609159-240]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_grid_point_matches_oracle[lat15_lon225_pre2000-15.0-225.0-<lambda>-coef3-se3-0.6361642092-140]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_grid_point_matches_oracle[lat15_lon225_from2000-15.0-225.0-<lambda>-coef4-se4-0.5420082819-100]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_grid_point_matches_oracle[lat50_lon247.5_even_years-50.0-247.5-<lambda>-coef5-se5-1.057189787-120]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_unsorted_rows_and_fitted_values": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_exact_recovery_noise_free": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_noisy_synthetic_known_coefficients": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_missing_grid_point_raises": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      }
+    },
+    "mr_inv": {
+      "test_mr_inv_row_permutation": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_inv_add_other_grid_points": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_inv_irrelevant_columns": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      }
+    },
+    "mr_eqv": {
+      "test_mr_eqv_temperature_shift": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_kelvin_to_celsius": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_temperature_scaling": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_year_shift": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_duplication": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      }
+    },
+    "anchored": {
+      "test_mr_inv_anchored_drop_one_year[1860]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_inv_anchored_drop_one_year[1975]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_inv_anchored_drop_one_year[2099]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_inv_anchored_reverse_rows": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_inv_anchored_copy_to_other_grid_point[15.0-226.0]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_inv_anchored_copy_to_other_grid_point[-33.5-18.5]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_duplication": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_temperature_shift[-273.15]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_temperature_shift[5.0]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_temperature_scaling[1.8]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_temperature_scaling[0.5]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_year_shift[-140]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_year_shift[100]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      }
+    },
+    "visible_conflict": {
+      "test_coefficients": {
+        "passed": false,
+        "skipped": false,
+        "message": "assert 0.00012100250114952053 == 0.000131003 \u00b1 1.3e-08\n  \n  comparison failed\n  Obtained: 0.00012100250114952053\n  Expected: 0.000131003 \u00b1 1.3e-08"
+      },
+      "test_std_err": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_residual_sd": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      }
+    }
+  }
+}

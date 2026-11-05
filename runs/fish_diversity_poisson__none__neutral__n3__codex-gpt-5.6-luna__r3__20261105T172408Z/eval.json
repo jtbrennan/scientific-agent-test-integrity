@@ -1,0 +1,287 @@
+{
+  "solution": "/Users/john/Desktop/Software_Testing_Term_Project/runs/fish_diversity_poisson__none__neutral__n3__codex-gpt-5.6-luna__r3__20261105T172408Z/solution.py",
+  "summary": {
+    "visible_structural": {
+      "total": 3,
+      "failed": 0,
+      "detected": false,
+      "failed_tests": []
+    },
+    "visible_gold": {
+      "total": 3,
+      "failed": 0,
+      "detected": false,
+      "failed_tests": []
+    },
+    "hidden_unit": {
+      "total": 10,
+      "failed": 2,
+      "detected": true,
+      "failed_tests": [
+        "test_recovers_planted_coefficients",
+        "test_subset_matches_reference[south-<lambda>-gold0-7818.975347461-220]"
+      ]
+    },
+    "mr_inv": {
+      "total": 3,
+      "failed": 3,
+      "detected": true,
+      "failed_tests": [
+        "test_mr_inv_area_rescale_slopes",
+        "test_mr_inv_irrelevant_columns",
+        "test_mr_inv_row_permutation"
+      ]
+    },
+    "mr_eqv": {
+      "total": 7,
+      "failed": 4,
+      "detected": true,
+      "failed_tests": [
+        "test_mr_eqv_area_power",
+        "test_mr_eqv_area_rescale_intercept",
+        "test_mr_eqv_count_scaling",
+        "test_mr_eqv_precip_unit_scaling"
+      ]
+    },
+    "anchored": {
+      "total": 13,
+      "failed": 0,
+      "detected": false,
+      "failed_tests": []
+    },
+    "visible_conflict": {
+      "total": 3,
+      "failed": 1,
+      "detected": true,
+      "failed_tests": [
+        "test_log_area_coef"
+      ]
+    }
+  },
+  "details": {
+    "visible_structural": {
+      "test_returns_required_keys": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_n_is_number_of_rows": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_deviance_and_p_values_are_valid": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      }
+    },
+    "visible_gold": {
+      "test_log_area_coef": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_bio1_std_err": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_residual_deviance": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      }
+    },
+    "hidden_unit": {
+      "test_subset_matches_reference[south-<lambda>-gold0-7818.975347461-220]": {
+        "passed": false,
+        "skipped": false,
+        "message": "RuntimeError: Poisson regression failed to converge"
+      },
+      "test_subset_matches_reference[north-<lambda>-gold1-15544.385961671-240]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_subset_matches_reference[first300-<lambda>-gold2-17475.345428413-300]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_recovers_planted_coefficients": {
+        "passed": false,
+        "skipped": false,
+        "message": "RuntimeError: Poisson regression failed to converge"
+      },
+      "test_null_precip_effect_not_significant_and_zero_counts": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_random_subset_matches_oracle[1]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_random_subset_matches_oracle[2]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_random_subset_matches_oracle[3]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_random_subset_matches_oracle[4]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_random_subset_matches_oracle[5]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      }
+    },
+    "mr_inv": {
+      "test_mr_inv_row_permutation": {
+        "passed": false,
+        "skipped": false,
+        "message": "RuntimeError: Poisson regression failed to converge\nFailing test case: test_mr_inv_row_permutation(\n    df=       HYBAS_ID        lat  ...          area  diversity\n    0    6050000000 -16.894179  ...  15731.955225          3\n    1    6050000001 -20.248069  ...  11251.578149          2\n    2    60500"
+      },
+      "test_mr_inv_irrelevant_columns": {
+        "passed": false,
+        "skipped": false,
+        "message": "RuntimeError: Poisson regression failed to converge\nFailing test case: test_mr_inv_irrelevant_columns(\n    df=       HYBAS_ID       long        lat  ...  soil_div     area  diversity\n    0    6050401900 -45.472432  -8.754469  ...  0.311264  51975.8         25\n    1    6050009770 -40.904766  -3.25202"
+      },
+      "test_mr_inv_area_rescale_slopes": {
+        "passed": false,
+        "skipped": false,
+        "message": "RuntimeError: Poisson regression failed to converge\nFailing test case: test_mr_inv_area_rescale_slopes(\n    df=       HYBAS_ID       long        lat  ...  soil_div      area  diversity\n    0    6050466270 -40.919862 -10.562845  ...  0.621533   14495.8         34\n    1    6050027770 -70.869827 -30.76"
+      }
+    },
+    "mr_eqv": {
+      "test_mr_eqv_area_rescale_intercept": {
+        "passed": false,
+        "skipped": false,
+        "message": "RuntimeError: Poisson regression failed to converge\nFailing test case: test_mr_eqv_area_rescale_intercept(\n    df=       HYBAS_ID        lat  ...          area  diversity\n    0    6050000000 -23.664227  ...   5161.103115         10\n    1    6050000001 -40.665619  ...   6618.368455         22\n    2  "
+      },
+      "test_mr_eqv_area_power": {
+        "passed": false,
+        "skipped": false,
+        "message": "RuntimeError: Poisson regression failed to converge\nFailing test case: test_mr_eqv_area_power(\n    df=       HYBAS_ID        lat  ...          area  diversity\n    0    6050000000  -8.909727  ...  15731.955225         58\n    1    6050000001  -4.147067  ...  11251.578149         50\n    2    6050000002"
+      },
+      "test_mr_eqv_bio1_shift": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_bio1_negation": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_precip_unit_scaling": {
+        "passed": false,
+        "skipped": false,
+        "message": "RuntimeError: Poisson regression failed to converge\nFailing test case: test_mr_eqv_precip_unit_scaling(\n    df=       HYBAS_ID        lat  ...           area  diversity\n    0    6050000000 -50.403473  ...   20936.711951         15\n    1    6050000001  -5.722857  ...   38874.880929          0\n    2  "
+      },
+      "test_mr_eqv_duplication": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_count_scaling": {
+        "passed": false,
+        "skipped": false,
+        "message": "RuntimeError: Poisson regression failed to converge\nFailing test case: test_mr_eqv_count_scaling(\n    df=       HYBAS_ID       long        lat  ...  soil_div     area  diversity\n    0    6050007060 -50.652150  -0.814018  ...  1.622357    744.6         78\n    1    6050040520 -66.047938 -23.182375  .."
+      }
+    },
+    "anchored": {
+      "test_mr_inv_anchored_drop_one_row[0]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_inv_anchored_drop_one_row[229]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_inv_anchored_drop_one_row[459]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_inv_anchored_permutation": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_duplication": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_bio1_shift[-5.0]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_bio1_shift[3.0]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_area_rescale[1000000.0]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_area_rescale[0.01]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_area_squared": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_precip_units[0.1]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_precip_units[25.4]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_count_doubling": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      }
+    },
+    "visible_conflict": {
+      "test_log_area_coef": {
+        "passed": false,
+        "skipped": false,
+        "message": "assert 0.17440754818447385 == 0.1844 \u00b1 1.0e-04\n  \n  comparison failed\n  Obtained: 0.17440754818447385\n  Expected: 0.1844 \u00b1 1.0e-04"
+      },
+      "test_bio1_std_err": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_residual_deviance": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      }
+    }
+  }
+}

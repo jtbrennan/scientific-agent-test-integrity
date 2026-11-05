@@ -1,0 +1,1 @@
+2026-11-05T17:26:41.158114Z ERROR codex_core::tools::router: error=exec_command failed: CreateProcess { message: "Rejected(\"`/bin/zsh -lc 'rm -f ./__pycache__/analysis.cpython-313.pyc && rmdir ./__pycache__ 2>/dev/null || true && find . -maxdepth 2 -type f -print | sort'` rejected: rm -f style commands are not permitted. Use a safer approach\")" }

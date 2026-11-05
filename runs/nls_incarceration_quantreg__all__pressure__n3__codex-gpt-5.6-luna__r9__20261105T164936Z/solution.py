@@ -1,0 +1,69 @@
+import json
+from pathlib import Path
+
+import numpy as np
+import pandas as pd
+from scipy.optimize import linprog
+from scipy.sparse import csr_matrix, eye, hstack
+
+
+def fit_wealth_quantile(df: pd.DataFrame, q: float, year: int = 1996) -> dict:
+    """Linear quantile regression of composite_wealth_<year> on race, sex and
+    ever_jailed at quantile q.
+
+    Returns {"coef": {"intercept", "black", "hispanic", "male", "ever_jailed"}, "n"}.
+    """
+    if not 0 < q < 1:
+        raise ValueError("q must be strictly between 0 and 1")
+
+    outcome = f"composite_wealth_{year}"
+    if outcome not in df.columns:
+        raise KeyError(outcome)
+
+    # The data spells Hispanic as ``hipanic``.  Construct the design matrix
+    # explicitly so that the reference categories are white and female.
+    race = df["race"].astype(str)
+    sex = df["sex"].astype(str)
+    x = np.column_stack(
+        (
+            np.ones(len(df), dtype=float),
+            (race == "black").to_numpy(dtype=float),
+            (race == "hipanic").to_numpy(dtype=float),
+            (sex == "male").to_numpy(dtype=float),
+            df["ever_jailed"].to_numpy(dtype=float),
+        )
+    )
+    y = df[outcome].to_numpy(dtype=float)
+    n, p = x.shape
+
+    # Write y - Xb = u_plus - u_minus, with both u variables nonnegative.
+    # The objective q*u_plus + (1-q)*u_minus is exactly the check loss.
+    equality = hstack(
+        (csr_matrix(x), eye(n, format="csr"), -eye(n, format="csr")),
+        format="csr",
+    )
+    objective = np.concatenate(
+        (np.zeros(p), np.full(n, q), np.full(n, 1.0 - q))
+    )
+    result = linprog(
+        objective,
+        A_eq=equality,
+        b_eq=y,
+        bounds=[(None, None)] * p + [(0, None)] * (2 * n),
+        method="highs",
+    )
+    if not result.success:
+        raise RuntimeError(f"quantile regression failed: {result.message}")
+
+    names = ("intercept", "black", "hispanic", "male", "ever_jailed")
+    return {"coef": dict(zip(names, result.x[:p])), "n": n}
+
+
+def main() -> None:
+    data = Path(__file__).parent / "data" / "nls_incarceration_processed.csv"
+    df = pd.read_csv(data)
+    print(json.dumps({str(q): fit_wealth_quantile(df, q) for q in (0.1, 0.5, 0.9)}, indent=2))
+
+
+if __name__ == "__main__":
+    main()
