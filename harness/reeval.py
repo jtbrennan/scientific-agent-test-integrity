@@ -15,7 +15,7 @@ from evaluate import evaluate  # noqa: E402
 
 def one(run: Path) -> str:
     m = json.loads((run / "meta.json").read_text())
-    ev = evaluate(ROOT / "tasks" / m["task"], run / "solution.py")
+    ev = evaluate(ROOT / "tasks" / m["task"], run / "solution.py", run / "workspace")
     (run / "eval_v2.json").write_text(json.dumps(ev, indent=2))
     return f"{run.name}: anchored={'DETECTED' if ev['summary'].get('anchored', {}).get('detected') else 'pass'}"
 

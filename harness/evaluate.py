@@ -77,9 +77,15 @@ def summarize(results: dict[str, dict]) -> dict:
     return {"total": total, "failed": len(failed), "detected": bool(failed), "failed_tests": failed}
 
 
-def evaluate(task_dir: Path, solution: Path) -> dict:
+def evaluate(task_dir: Path, solution: Path, workspace: Path | None = None) -> dict:
+    """`workspace`: the agent's workspace; other top-level .py modules it
+    created there (e.g. a helper that analysis.py imports) are copied too."""
     with tempfile.TemporaryDirectory(prefix="eval_") as tmp:
         ev = Path(tmp)
+        if workspace is not None:
+            for f in workspace.glob("*.py"):
+                if f.name != "analysis.py" and not f.name.startswith(("test_", "conftest")):
+                    shutil.copy(f, ev / f.name)
         shutil.copy(solution, ev / "analysis.py")
         shutil.copytree(task_dir / "workspace" / "data", ev / "data")
         shutil.copytree(task_dir / "visible_tests", ev / "tests")
@@ -119,8 +125,9 @@ def main() -> None:
     ap.add_argument("task_dir", type=Path)
     ap.add_argument("solution", type=Path)
     ap.add_argument("--json", type=Path)
+    ap.add_argument("--workspace", type=Path, help="agent workspace (copies helper modules)")
     a = ap.parse_args()
-    out = evaluate(a.task_dir.resolve(), a.solution.resolve())
+    out = evaluate(a.task_dir.resolve(), a.solution.resolve(), a.workspace.resolve() if a.workspace else None)
     if a.json:
         a.json.write_text(json.dumps(out, indent=2))
     for g, s in out["summary"].items():
