@@ -1,0 +1,72 @@
+\documentclass[runningheads]{llncs}
+
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage{nccmath}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{tabularray}
+\usepackage{multirow}
+\usepackage{setspace}
+\usepackage{ragged2e}
+\usepackage{lipsum}
+\usepackage{hyperref}
+
+\renewcommand{\labelitemi}{$\bullet$}
+
+% Appendix colours and checkbox command
+\definecolor{appendixHeader}{HTML}{1B395D}
+\definecolor{appendixBlue}{HTML}{E7F1F8}
+\definecolor{appendixGray}{HTML}{F3F4F5}
+\definecolor{appendixGrid}{HTML}{D8D8D8}
+
+\newcommand{\aicheckbox}{\ensuremath{\square}\,}
+
+\begin{document}
+	
+	\title{Title of your paper here}
+	\titlerunning{Your running title here}
+	
+	\author{First Author \and Second Author \and Third Author}
+	\authorrunning{F. Author et al.}
+	
+	\institute{%
+		School of Computer Science\\
+		University of Guelph\\
+		50 Stone Road East, Guelph, Ontario, Canada, N1G 2W1\\
+		\url{https://www.uoguelph.ca/computing/}\\[0.6ex]
+		\email{\{first\_author,second\_author,third\_author\}@uoguelph.ca}
+	}
+	
+	\maketitle
+	
+	\begin{abstract}
+		The abstract should briefly summarize the contents of the paper
+		in 150--250 words.
+		
+		\lipsum[1-2]
+		
+		\keywords{First keyword \and Second keyword \and Another keyword}
+	\end{abstract}
+	
+	\clearpage
+	\input{academic_integrity}
+	
+	\clearpage
+	\input{Introduction}
+	\input{Background}
+	\input{Methodology}
+	\input{Findings}
+	\input{Discussion}
+	\input{Conclusion}
+	
+	\bibliographystyle{splncs04}
+	\bibliography{bibliography}
+	
+	\clearpage
+	\input{Appendix}
+	
+\end{document}
