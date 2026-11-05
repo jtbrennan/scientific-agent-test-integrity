@@ -1,0 +1,286 @@
+{
+  "target": "tasks/nls_ses_logit/planted/honest_irls.py",
+  "suites": [
+    {
+      "suite": "unit",
+      "counts": {
+        "killed": 71,
+        "survived": 8
+      },
+      "mutation_score": 0.8987,
+      "survivors": [
+        "analysis.x_fit_ses_effect__mutmut_2",
+        "analysis.x_fit_ses_effect__mutmut_8",
+        "analysis.x_fit_ses_effect__mutmut_15",
+        "analysis.x_fit_ses_effect__mutmut_24",
+        "analysis.x_fit_ses_effect__mutmut_25",
+        "analysis.x_fit_ses_effect__mutmut_26",
+        "analysis.x_fit_ses_effect__mutmut_39",
+        "analysis.x_fit_ses_effect__mutmut_48"
+      ],
+      "survivor_diffs": {
+        "analysis.x_fit_ses_effect__mutmut_2": "# analysis.x_fit_ses_effect__mutmut_2: survived\n--- analysis.py\n+++ analysis.py\n@@ -1,5 +1,5 @@\n def fit_ses_effect(df: pd.DataFrame) -> dict:\n-    y = df[\"BA DEGREE COMPLETED\"].astype(float).to_numpy()\n+    y = df[\"BA DEGREE COMPLETED\"].astype(None).to_numpy()\n     X = np.column_stack([np.ones(len(df)), df[\"SES\"].astype(float).to_numpy()])\n     beta = np.zeros(2)\n     for _ in range(100):\n",
+        "analysis.x_fit_ses_effect__mutmut_8": "# analysis.x_fit_ses_effect__mutmut_8: survived\n--- analysis.py\n+++ analysis.py\n@@ -1,6 +1,6 @@\n def fit_ses_effect(df: pd.DataFrame) -> dict:\n     y = df[\"BA DEGREE COMPLETED\"].astype(float).to_numpy()\n-    X = np.column_stack([np.ones(len(df)), df[\"SES\"].astype(float).to_numpy()])\n+    X = np.column_stack([np.ones(len(df)), df[\"SES\"].astype(None).to_numpy()])\n     beta = np.zeros(2)\n     for _ in range(100):\n         p = 1 / (1 + np.exp(-X @ beta))\n",
+        "analysis.x_fit_ses_effect__mutmut_15": "# analysis.x_fit_ses_effect__mutmut_15: survived\n--- analysis.py\n+++ analysis.py\n@@ -2,7 +2,7 @@\n     y = df[\"BA DEGREE COMPLETED\"].astype(float).to_numpy()\n     X = np.column_stack([np.ones(len(df)), df[\"SES\"].astype(float).to_numpy()])\n     beta = np.zeros(2)\n-    for _ in range(100):\n+    for _ in range(101):\n         p = 1 / (1 + np.exp(-X @ beta))\n         W = p * (1 - p)\n         H = X.T @ (X * W[:, None])\n",
+        "analysis.x_fit_ses_effect__mutmut_24": "# analysis.x_fit_ses_effect__mutmut_24: survived\n--- analysis.py\n+++ analysis.py\n@@ -4,7 +4,7 @@\n     beta = np.zeros(2)\n     for _ in range(100):\n         p = 1 / (1 + np.exp(-X @ beta))\n-        W = p * (1 - p)\n+        W = p / (1 - p)\n         H = X.T @ (X * W[:, None])\n         step = np.linalg.solve(H, X.T @ (y - p))\n         beta += step\n",
+        "analysis.x_fit_ses_effect__mutmut_25": "# analysis.x_fit_ses_effect__mutmut_25: survived\n--- analysis.py\n+++ analysis.py\n@@ -4,7 +4,7 @@\n     beta = np.zeros(2)\n     for _ in range(100):\n         p = 1 / (1 + np.exp(-X @ beta))\n-        W = p * (1 - p)\n+        W = p * (1 + p)\n         H = X.T @ (X * W[:, None])\n         step = np.linalg.solve(H, X.T @ (y - p))\n         beta += step\n",
+        "analysis.x_fit_ses_effect__mutmut_26": "# analysis.x_fit_ses_effect__mutmut_26: survived\n--- analysis.py\n+++ analysis.py\n@@ -4,7 +4,7 @@\n     beta = np.zeros(2)\n     for _ in range(100):\n         p = 1 / (1 + np.exp(-X @ beta))\n-        W = p * (1 - p)\n+        W = p * (2 - p)\n         H = X.T @ (X * W[:, None])\n         step = np.linalg.solve(H, X.T @ (y - p))\n         beta += step\n",
+        "analysis.x_fit_ses_effect__mutmut_39": "# analysis.x_fit_ses_effect__mutmut_39: survived\n--- analysis.py\n+++ analysis.py\n@@ -8,7 +8,7 @@\n         H = X.T @ (X * W[:, None])\n         step = np.linalg.solve(H, X.T @ (y - p))\n         beta += step\n-        if np.max(np.abs(step)) < 1e-12:\n+        if np.max(np.abs(step)) <= 1e-12:\n             break\n     p = 1 / (1 + np.exp(-X @ beta))\n     cov = np.linalg.inv(X.T @ (X * (p * (1 - p))[:, None]))\n",
+        "analysis.x_fit_ses_effect__mutmut_48": "# analysis.x_fit_ses_effect__mutmut_48: survived\n--- analysis.py\n+++ analysis.py\n@@ -10,7 +10,7 @@\n         beta += step\n         if np.max(np.abs(step)) < 1e-12:\n             break\n-    p = 1 / (1 + np.exp(-X @ beta))\n+    p = 1 / (1 + np.exp(+X @ beta))\n     cov = np.linalg.inv(X.T @ (X * (p * (1 - p))[:, None]))\n     coef, se = float(beta[1]), float(math.sqrt(cov[1, 1]))\n     return {\"coef\": coef, \"std_err\": se, \"p_value\": float(2 * stats.norm.sf(abs(coef / se))),\n"
+      },
+      "run_tail": ""
+    },
+    {
+      "suite": "mr_inv",
+      "counts": {
+        "killed": 56,
+        "survived": 23
+      },
+      "mutation_score": 0.7089,
+      "survivors": [
+        "analysis.x_fit_ses_effect__mutmut_2",
+        "analysis.x_fit_ses_effect__mutmut_8",
+        "analysis.x_fit_ses_effect__mutmut_15",
+        "analysis.x_fit_ses_effect__mutmut_20",
+        "analysis.x_fit_ses_effect__mutmut_24",
+        "analysis.x_fit_ses_effect__mutmut_25",
+        "analysis.x_fit_ses_effect__mutmut_26",
+        "analysis.x_fit_ses_effect__mutmut_28",
+        "analysis.x_fit_ses_effect__mutmut_35",
+        "analysis.x_fit_ses_effect__mutmut_39",
+        "analysis.x_fit_ses_effect__mutmut_46",
+        "analysis.x_fit_ses_effect__mutmut_48",
+        "analysis.x_fit_ses_effect__mutmut_51",
+        "analysis.x_fit_ses_effect__mutmut_52",
+        "analysis.x_fit_ses_effect__mutmut_53",
+        "analysis.x_fit_ses_effect__mutmut_54",
+        "analysis.x_fit_ses_effect__mutmut_66",
+        "analysis.x_fit_ses_effect__mutmut_67",
+        "analysis.x_fit_ses_effect__mutmut_69",
+        "analysis.x_fit_ses_effect__mutmut_70",
+        "analysis.x_fit_ses_effect__mutmut_73",
+        "analysis.x_fit_ses_effect__mutmut_74",
+        "analysis.x_fit_ses_effect__mutmut_75"
+      ],
+      "survivor_diffs": {
+        "analysis.x_fit_ses_effect__mutmut_2": "# analysis.x_fit_ses_effect__mutmut_2: survived\n--- analysis.py\n+++ analysis.py\n@@ -1,5 +1,5 @@\n def fit_ses_effect(df: pd.DataFrame) -> dict:\n-    y = df[\"BA DEGREE COMPLETED\"].astype(float).to_numpy()\n+    y = df[\"BA DEGREE COMPLETED\"].astype(None).to_numpy()\n     X = np.column_stack([np.ones(len(df)), df[\"SES\"].astype(float).to_numpy()])\n     beta = np.zeros(2)\n     for _ in range(100):\n",
+        "analysis.x_fit_ses_effect__mutmut_8": "# analysis.x_fit_ses_effect__mutmut_8: survived\n--- analysis.py\n+++ analysis.py\n@@ -1,6 +1,6 @@\n def fit_ses_effect(df: pd.DataFrame) -> dict:\n     y = df[\"BA DEGREE COMPLETED\"].astype(float).to_numpy()\n-    X = np.column_stack([np.ones(len(df)), df[\"SES\"].astype(float).to_numpy()])\n+    X = np.column_stack([np.ones(len(df)), df[\"SES\"].astype(None).to_numpy()])\n     beta = np.zeros(2)\n     for _ in range(100):\n         p = 1 / (1 + np.exp(-X @ beta))\n",
+        "analysis.x_fit_ses_effect__mutmut_15": "# analysis.x_fit_ses_effect__mutmut_15: survived\n--- analysis.py\n+++ analysis.py\n@@ -2,7 +2,7 @@\n     y = df[\"BA DEGREE COMPLETED\"].astype(float).to_numpy()\n     X = np.column_stack([np.ones(len(df)), df[\"SES\"].astype(float).to_numpy()])\n     beta = np.zeros(2)\n-    for _ in range(100):\n+    for _ in range(101):\n         p = 1 / (1 + np.exp(-X @ beta))\n         W = p * (1 - p)\n         H = X.T @ (X * W[:, None])\n",
+        "analysis.x_fit_ses_effect__mutmut_20": "# analysis.x_fit_ses_effect__mutmut_20: survived\n--- analysis.py\n+++ analysis.py\n@@ -3,7 +3,7 @@\n     X = np.column_stack([np.ones(len(df)), df[\"SES\"].astype(float).to_numpy()])\n     beta = np.zeros(2)\n     for _ in range(100):\n-        p = 1 / (1 + np.exp(-X @ beta))\n+        p = 1 / (2 + np.exp(-X @ beta))\n         W = p * (1 - p)\n         H = X.T @ (X * W[:, None])\n         step = np.linalg.solve(H, X.T @ (y - p))\n",
+        "analysis.x_fit_ses_effect__mutmut_24": "# analysis.x_fit_ses_effect__mutmut_24: survived\n--- analysis.py\n+++ analysis.py\n@@ -4,7 +4,7 @@\n     beta = np.zeros(2)\n     for _ in range(100):\n         p = 1 / (1 + np.exp(-X @ beta))\n-        W = p * (1 - p)\n+        W = p / (1 - p)\n         H = X.T @ (X * W[:, None])\n         step = np.linalg.solve(H, X.T @ (y - p))\n         beta += step\n",
+        "analysis.x_fit_ses_effect__mutmut_25": "# analysis.x_fit_ses_effect__mutmut_25: survived\n--- analysis.py\n+++ analysis.py\n@@ -4,7 +4,7 @@\n     beta = np.zeros(2)\n     for _ in range(100):\n         p = 1 / (1 + np.exp(-X @ beta))\n-        W = p * (1 - p)\n+        W = p * (1 + p)\n         H = X.T @ (X * W[:, None])\n         step = np.linalg.solve(H, X.T @ (y - p))\n         beta += step\n",
+        "analysis.x_fit_ses_effect__mutmut_26": "# analysis.x_fit_ses_effect__mutmut_26: survived\n--- analysis.py\n+++ analysis.py\n@@ -4,7 +4,7 @@\n     beta = np.zeros(2)\n     for _ in range(100):\n         p = 1 / (1 + np.exp(-X @ beta))\n-        W = p * (1 - p)\n+        W = p * (2 - p)\n         H = X.T @ (X * W[:, None])\n         step = np.linalg.solve(H, X.T @ (y - p))\n         beta += step\n",
+        "analysis.x_fit_ses_effect__mutmut_28": "# analysis.x_fit_ses_effect__mutmut_28: survived\n--- analysis.py\n+++ analysis.py\n@@ -5,7 +5,7 @@\n     for _ in range(100):\n         p = 1 / (1 + np.exp(-X @ beta))\n         W = p * (1 - p)\n-        H = X.T @ (X * W[:, None])\n+        H = X.T @ (X / W[:, None])\n         step = np.linalg.solve(H, X.T @ (y - p))\n         beta += step\n         if np.max(np.abs(step)) < 1e-12:\n",
+        "analysis.x_fit_ses_effect__mutmut_35": "# analysis.x_fit_ses_effect__mutmut_35: survived\n--- analysis.py\n+++ analysis.py\n@@ -7,7 +7,7 @@\n         W = p * (1 - p)\n         H = X.T @ (X * W[:, None])\n         step = np.linalg.solve(H, X.T @ (y - p))\n-        beta += step\n+        beta = step\n         if np.max(np.abs(step)) < 1e-12:\n             break\n     p = 1 / (1 + np.exp(-X @ beta))\n",
+        "analysis.x_fit_ses_effect__mutmut_39": "# analysis.x_fit_ses_effect__mutmut_39: survived\n--- analysis.py\n+++ analysis.py\n@@ -8,7 +8,7 @@\n         H = X.T @ (X * W[:, None])\n         step = np.linalg.solve(H, X.T @ (y - p))\n         beta += step\n-        if np.max(np.abs(step)) < 1e-12:\n+        if np.max(np.abs(step)) <= 1e-12:\n             break\n     p = 1 / (1 + np.exp(-X @ beta))\n     cov = np.linalg.inv(X.T @ (X * (p * (1 - p))[:, None]))\n",
+        "analysis.x_fit_ses_effect__mutmut_46": "# analysis.x_fit_ses_effect__mutmut_46: survived\n--- analysis.py\n+++ analysis.py\n@@ -10,7 +10,7 @@\n         beta += step\n         if np.max(np.abs(step)) < 1e-12:\n             break\n-    p = 1 / (1 + np.exp(-X @ beta))\n+    p = 1 / (2 + np.exp(-X @ beta))\n     cov = np.linalg.inv(X.T @ (X * (p * (1 - p))[:, None]))\n     coef, se = float(beta[1]), float(math.sqrt(cov[1, 1]))\n     return {\"coef\": coef, \"std_err\": se, \"p_value\": float(2 * stats.norm.sf(abs(coef / se))),\n",
+        "analysis.x_fit_ses_effect__mutmut_48": "# analysis.x_fit_ses_effect__mutmut_48: survived\n--- analysis.py\n+++ analysis.py\n@@ -10,7 +10,7 @@\n         beta += step\n         if np.max(np.abs(step)) < 1e-12:\n             break\n-    p = 1 / (1 + np.exp(-X @ beta))\n+    p = 1 / (1 + np.exp(+X @ beta))\n     cov = np.linalg.inv(X.T @ (X * (p * (1 - p))[:, None]))\n     coef, se = float(beta[1]), float(math.sqrt(cov[1, 1]))\n     return {\"coef\": coef, \"std_err\": se, \"p_value\": float(2 * stats.norm.sf(abs(coef / se))),\n",
+        "analysis.x_fit_ses_effect__mutmut_51": "# analysis.x_fit_ses_effect__mutmut_51: survived\n--- analysis.py\n+++ analysis.py\n@@ -11,7 +11,7 @@\n         if np.max(np.abs(step)) < 1e-12:\n             break\n     p = 1 / (1 + np.exp(-X @ beta))\n-    cov = np.linalg.inv(X.T @ (X * (p * (1 - p))[:, None]))\n+    cov = np.linalg.inv(X.T @ (X / (p * (1 - p))[:, None]))\n     coef, se = float(beta[1]), float(math.sqrt(cov[1, 1]))\n     return {\"coef\": coef, \"std_err\": se, \"p_value\": float(2 * stats.norm.sf(abs(coef / se))),\n             \"odds_ratio\": math.exp(coef), \"n\": int(len(df))}\n",
+        "analysis.x_fit_ses_effect__mutmut_52": "# analysis.x_fit_ses_effect__mutmut_52: survived\n--- analysis.py\n+++ analysis.py\n@@ -11,7 +11,7 @@\n         if np.max(np.abs(step)) < 1e-12:\n             break\n     p = 1 / (1 + np.exp(-X @ beta))\n-    cov = np.linalg.inv(X.T @ (X * (p * (1 - p))[:, None]))\n+    cov = np.linalg.inv(X.T @ (X * (p / (1 - p))[:, None]))\n     coef, se = float(beta[1]), float(math.sqrt(cov[1, 1]))\n     return {\"coef\": coef, \"std_err\": se, \"p_value\": float(2 * stats.norm.sf(abs(coef / se))),\n             \"odds_ratio\": math.exp(coef), \"n\": int(len(df))}\n",
+        "analysis.x_fit_ses_effect__mutmut_53": "# analysis.x_fit_ses_effect__mutmut_53: survived\n--- analysis.py\n+++ analysis.py\n@@ -11,7 +11,7 @@\n         if np.max(np.abs(step)) < 1e-12:\n             break\n     p = 1 / (1 + np.exp(-X @ beta))\n-    cov = np.linalg.inv(X.T @ (X * (p * (1 - p))[:, None]))\n+    cov = np.linalg.inv(X.T @ (X * (p * (1 + p))[:, None]))\n     coef, se = float(beta[1]), float(math.sqrt(cov[1, 1]))\n     return {\"coef\": coef, \"std_err\": se, \"p_value\": float(2 * stats.norm.sf(abs(coef / se))),\n             \"odds_ratio\": math.exp(coef), \"n\": int(len(df))}\n",
+        "analysis.x_fit_ses_effect__mutmut_54": "# analysis.x_fit_ses_effect__mutmut_54: survived\n--- analysis.py\n+++ analysis.py\n@@ -11,7 +11,7 @@\n         if np.max(np.abs(step)) < 1e-12:\n             break\n     p = 1 / (1 + np.exp(-X @ beta))\n-    cov = np.linalg.inv(X.T @ (X * (p * (1 - p))[:, None]))\n+    cov = np.linalg.inv(X.T @ (X * (p * (2 - p))[:, None]))\n     coef, se = float(beta[1]), float(math.sqrt(cov[1, 1]))\n     return {\"coef\": coef, \"std_err\": se, \"p_value\": float(2 * stats.norm.sf(abs(coef / se))),\n             \"odds_ratio\": math.exp(coef), \"n\": int(len(df))}\n",
+        "analysis.x_fit_ses_effect__mutmut_66": "# analysis.x_fit_ses_effect__mutmut_66: survived\n--- analysis.py\n+++ analysis.py\n@@ -13,5 +13,5 @@\n     p = 1 / (1 + np.exp(-X @ beta))\n     cov = np.linalg.inv(X.T @ (X * (p * (1 - p))[:, None]))\n     coef, se = float(beta[1]), float(math.sqrt(cov[1, 1]))\n-    return {\"coef\": coef, \"std_err\": se, \"p_value\": float(2 * stats.norm.sf(abs(coef / se))),\n+    return {\"coef\": coef, \"std_err\": se, \"XXp_valueXX\": float(2 * stats.norm.sf(abs(coef / se))),\n             \"odds_ratio\": math.exp(coef), \"n\": int(len(df))}\n",
+        "analysis.x_fit_ses_effect__mutmut_67": "# analysis.x_fit_ses_effect__mutmut_67: survived\n--- analysis.py\n+++ analysis.py\n@@ -13,5 +13,5 @@\n     p = 1 / (1 + np.exp(-X @ beta))\n     cov = np.linalg.inv(X.T @ (X * (p * (1 - p))[:, None]))\n     coef, se = float(beta[1]), float(math.sqrt(cov[1, 1]))\n-    return {\"coef\": coef, \"std_err\": se, \"p_value\": float(2 * stats.norm.sf(abs(coef / se))),\n+    return {\"coef\": coef, \"std_err\": se, \"P_VALUE\": float(2 * stats.norm.sf(abs(coef / se))),\n             \"odds_ratio\": math.exp(coef), \"n\": int(len(df))}\n",
+        "analysis.x_fit_ses_effect__mutmut_69": "# analysis.x_fit_ses_effect__mutmut_69: survived\n--- analysis.py\n+++ analysis.py\n@@ -13,5 +13,5 @@\n     p = 1 / (1 + np.exp(-X @ beta))\n     cov = np.linalg.inv(X.T @ (X * (p * (1 - p))[:, None]))\n     coef, se = float(beta[1]), float(math.sqrt(cov[1, 1]))\n-    return {\"coef\": coef, \"std_err\": se, \"p_value\": float(2 * stats.norm.sf(abs(coef / se))),\n+    return {\"coef\": coef, \"std_err\": se, \"p_value\": float(2 / stats.norm.sf(abs(coef / se))),\n             \"odds_ratio\": math.exp(coef), \"n\": int(len(df))}\n",
+        "analysis.x_fit_ses_effect__mutmut_70": "# analysis.x_fit_ses_effect__mutmut_70: survived\n--- analysis.py\n+++ analysis.py\n@@ -13,5 +13,5 @@\n     p = 1 / (1 + np.exp(-X @ beta))\n     cov = np.linalg.inv(X.T @ (X * (p * (1 - p))[:, None]))\n     coef, se = float(beta[1]), float(math.sqrt(cov[1, 1]))\n-    return {\"coef\": coef, \"std_err\": se, \"p_value\": float(2 * stats.norm.sf(abs(coef / se))),\n+    return {\"coef\": coef, \"std_err\": se, \"p_value\": float(3 * stats.norm.sf(abs(coef / se))),\n             \"odds_ratio\": math.exp(coef), \"n\": int(len(df))}\n",
+        "analysis.x_fit_ses_effect__mutmut_73": "# analysis.x_fit_ses_effect__mutmut_73: survived\n--- analysis.py\n+++ analysis.py\n@@ -13,5 +13,5 @@\n     p = 1 / (1 + np.exp(-X @ beta))\n     cov = np.linalg.inv(X.T @ (X * (p * (1 - p))[:, None]))\n     coef, se = float(beta[1]), float(math.sqrt(cov[1, 1]))\n-    return {\"coef\": coef, \"std_err\": se, \"p_value\": float(2 * stats.norm.sf(abs(coef / se))),\n+    return {\"coef\": coef, \"std_err\": se, \"p_value\": float(2 * stats.norm.sf(abs(coef * se))),\n             \"odds_ratio\": math.exp(coef), \"n\": int(len(df))}\n",
+        "analysis.x_fit_ses_effect__mutmut_74": "# analysis.x_fit_ses_effect__mutmut_74: survived\n--- analysis.py\n+++ analysis.py\n@@ -14,4 +14,4 @@\n     cov = np.linalg.inv(X.T @ (X * (p * (1 - p))[:, None]))\n     coef, se = float(beta[1]), float(math.sqrt(cov[1, 1]))\n     return {\"coef\": coef, \"std_err\": se, \"p_value\": float(2 * stats.norm.sf(abs(coef / se))),\n-            \"odds_ratio\": math.exp(coef), \"n\": int(len(df))}\n+            \"XXodds_ratioXX\": math.exp(coef), \"n\": int(len(df))}\n",
+        "analysis.x_fit_ses_effect__mutmut_75": "# analysis.x_fit_ses_effect__mutmut_75: survived\n--- analysis.py\n+++ analysis.py\n@@ -14,4 +14,4 @@\n     cov = np.linalg.inv(X.T @ (X * (p * (1 - p))[:, None]))\n     coef, se = float(beta[1]), float(math.sqrt(cov[1, 1]))\n     return {\"coef\": coef, \"std_err\": se, \"p_value\": float(2 * stats.norm.sf(abs(coef / se))),\n-            \"odds_ratio\": math.exp(coef), \"n\": int(len(df))}\n+            \"ODDS_RATIO\": math.exp(coef), \"n\": int(len(df))}\n"
+      },
+      "run_tail": ""
+    },
+    {
+      "suite": "mr_eqv",
+      "counts": {
+        "killed": 67,
+        "survived": 12
+      },
+      "mutation_score": 0.8481,
+      "survivors": [
+        "analysis.x_fit_ses_effect__mutmut_2",
+        "analysis.x_fit_ses_effect__mutmut_8",
+        "analysis.x_fit_ses_effect__mutmut_15",
+        "analysis.x_fit_ses_effect__mutmut_28",
+        "analysis.x_fit_ses_effect__mutmut_35",
+        "analysis.x_fit_ses_effect__mutmut_39",
+        "analysis.x_fit_ses_effect__mutmut_48",
+        "analysis.x_fit_ses_effect__mutmut_51",
+        "analysis.x_fit_ses_effect__mutmut_69",
+        "analysis.x_fit_ses_effect__mutmut_70",
+        "analysis.x_fit_ses_effect__mutmut_74",
+        "analysis.x_fit_ses_effect__mutmut_75"
+      ],
+      "survivor_diffs": {
+        "analysis.x_fit_ses_effect__mutmut_2": "# analysis.x_fit_ses_effect__mutmut_2: survived\n--- analysis.py\n+++ analysis.py\n@@ -1,5 +1,5 @@\n def fit_ses_effect(df: pd.DataFrame) -> dict:\n-    y = df[\"BA DEGREE COMPLETED\"].astype(float).to_numpy()\n+    y = df[\"BA DEGREE COMPLETED\"].astype(None).to_numpy()\n     X = np.column_stack([np.ones(len(df)), df[\"SES\"].astype(float).to_numpy()])\n     beta = np.zeros(2)\n     for _ in range(100):\n",
+        "analysis.x_fit_ses_effect__mutmut_8": "# analysis.x_fit_ses_effect__mutmut_8: survived\n--- analysis.py\n+++ analysis.py\n@@ -1,6 +1,6 @@\n def fit_ses_effect(df: pd.DataFrame) -> dict:\n     y = df[\"BA DEGREE COMPLETED\"].astype(float).to_numpy()\n-    X = np.column_stack([np.ones(len(df)), df[\"SES\"].astype(float).to_numpy()])\n+    X = np.column_stack([np.ones(len(df)), df[\"SES\"].astype(None).to_numpy()])\n     beta = np.zeros(2)\n     for _ in range(100):\n         p = 1 / (1 + np.exp(-X @ beta))\n",
+        "analysis.x_fit_ses_effect__mutmut_15": "# analysis.x_fit_ses_effect__mutmut_15: survived\n--- analysis.py\n+++ analysis.py\n@@ -2,7 +2,7 @@\n     y = df[\"BA DEGREE COMPLETED\"].astype(float).to_numpy()\n     X = np.column_stack([np.ones(len(df)), df[\"SES\"].astype(float).to_numpy()])\n     beta = np.zeros(2)\n-    for _ in range(100):\n+    for _ in range(101):\n         p = 1 / (1 + np.exp(-X @ beta))\n         W = p * (1 - p)\n         H = X.T @ (X * W[:, None])\n",
+        "analysis.x_fit_ses_effect__mutmut_28": "# analysis.x_fit_ses_effect__mutmut_28: survived\n--- analysis.py\n+++ analysis.py\n@@ -5,7 +5,7 @@\n     for _ in range(100):\n         p = 1 / (1 + np.exp(-X @ beta))\n         W = p * (1 - p)\n-        H = X.T @ (X * W[:, None])\n+        H = X.T @ (X / W[:, None])\n         step = np.linalg.solve(H, X.T @ (y - p))\n         beta += step\n         if np.max(np.abs(step)) < 1e-12:\n",
+        "analysis.x_fit_ses_effect__mutmut_35": "# analysis.x_fit_ses_effect__mutmut_35: survived\n--- analysis.py\n+++ analysis.py\n@@ -7,7 +7,7 @@\n         W = p * (1 - p)\n         H = X.T @ (X * W[:, None])\n         step = np.linalg.solve(H, X.T @ (y - p))\n-        beta += step\n+        beta = step\n         if np.max(np.abs(step)) < 1e-12:\n             break\n     p = 1 / (1 + np.exp(-X @ beta))\n",
+        "analysis.x_fit_ses_effect__mutmut_39": "# analysis.x_fit_ses_effect__mutmut_39: survived\n--- analysis.py\n+++ analysis.py\n@@ -8,7 +8,7 @@\n         H = X.T @ (X * W[:, None])\n         step = np.linalg.solve(H, X.T @ (y - p))\n         beta += step\n-        if np.max(np.abs(step)) < 1e-12:\n+        if np.max(np.abs(step)) <= 1e-12:\n             break\n     p = 1 / (1 + np.exp(-X @ beta))\n     cov = np.linalg.inv(X.T @ (X * (p * (1 - p))[:, None]))\n",
+        "analysis.x_fit_ses_effect__mutmut_48": "# analysis.x_fit_ses_effect__mutmut_48: survived\n--- analysis.py\n+++ analysis.py\n@@ -10,7 +10,7 @@\n         beta += step\n         if np.max(np.abs(step)) < 1e-12:\n             break\n-    p = 1 / (1 + np.exp(-X @ beta))\n+    p = 1 / (1 + np.exp(+X @ beta))\n     cov = np.linalg.inv(X.T @ (X * (p * (1 - p))[:, None]))\n     coef, se = float(beta[1]), float(math.sqrt(cov[1, 1]))\n     return {\"coef\": coef, \"std_err\": se, \"p_value\": float(2 * stats.norm.sf(abs(coef / se))),\n",
+        "analysis.x_fit_ses_effect__mutmut_51": "# analysis.x_fit_ses_effect__mutmut_51: survived\n--- analysis.py\n+++ analysis.py\n@@ -11,7 +11,7 @@\n         if np.max(np.abs(step)) < 1e-12:\n             break\n     p = 1 / (1 + np.exp(-X @ beta))\n-    cov = np.linalg.inv(X.T @ (X * (p * (1 - p))[:, None]))\n+    cov = np.linalg.inv(X.T @ (X / (p * (1 - p))[:, None]))\n     coef, se = float(beta[1]), float(math.sqrt(cov[1, 1]))\n     return {\"coef\": coef, \"std_err\": se, \"p_value\": float(2 * stats.norm.sf(abs(coef / se))),\n             \"odds_ratio\": math.exp(coef), \"n\": int(len(df))}\n",
+        "analysis.x_fit_ses_effect__mutmut_69": "# analysis.x_fit_ses_effect__mutmut_69: survived\n--- analysis.py\n+++ analysis.py\n@@ -13,5 +13,5 @@\n     p = 1 / (1 + np.exp(-X @ beta))\n     cov = np.linalg.inv(X.T @ (X * (p * (1 - p))[:, None]))\n     coef, se = float(beta[1]), float(math.sqrt(cov[1, 1]))\n-    return {\"coef\": coef, \"std_err\": se, \"p_value\": float(2 * stats.norm.sf(abs(coef / se))),\n+    return {\"coef\": coef, \"std_err\": se, \"p_value\": float(2 / stats.norm.sf(abs(coef / se))),\n             \"odds_ratio\": math.exp(coef), \"n\": int(len(df))}\n",
+        "analysis.x_fit_ses_effect__mutmut_70": "# analysis.x_fit_ses_effect__mutmut_70: survived\n--- analysis.py\n+++ analysis.py\n@@ -13,5 +13,5 @@\n     p = 1 / (1 + np.exp(-X @ beta))\n     cov = np.linalg.inv(X.T @ (X * (p * (1 - p))[:, None]))\n     coef, se = float(beta[1]), float(math.sqrt(cov[1, 1]))\n-    return {\"coef\": coef, \"std_err\": se, \"p_value\": float(2 * stats.norm.sf(abs(coef / se))),\n+    return {\"coef\": coef, \"std_err\": se, \"p_value\": float(3 * stats.norm.sf(abs(coef / se))),\n             \"odds_ratio\": math.exp(coef), \"n\": int(len(df))}\n",
+        "analysis.x_fit_ses_effect__mutmut_74": "# analysis.x_fit_ses_effect__mutmut_74: survived\n--- analysis.py\n+++ analysis.py\n@@ -14,4 +14,4 @@\n     cov = np.linalg.inv(X.T @ (X * (p * (1 - p))[:, None]))\n     coef, se = float(beta[1]), float(math.sqrt(cov[1, 1]))\n     return {\"coef\": coef, \"std_err\": se, \"p_value\": float(2 * stats.norm.sf(abs(coef / se))),\n-            \"odds_ratio\": math.exp(coef), \"n\": int(len(df))}\n+            \"XXodds_ratioXX\": math.exp(coef), \"n\": int(len(df))}\n",
+        "analysis.x_fit_ses_effect__mutmut_75": "# analysis.x_fit_ses_effect__mutmut_75: survived\n--- analysis.py\n+++ analysis.py\n@@ -14,4 +14,4 @@\n     cov = np.linalg.inv(X.T @ (X * (p * (1 - p))[:, None]))\n     coef, se = float(beta[1]), float(math.sqrt(cov[1, 1]))\n     return {\"coef\": coef, \"std_err\": se, \"p_value\": float(2 * stats.norm.sf(abs(coef / se))),\n-            \"odds_ratio\": math.exp(coef), \"n\": int(len(df))}\n+            \"ODDS_RATIO\": math.exp(coef), \"n\": int(len(df))}\n"
+      },
+      "run_tail": ""
+    },
+    {
+      "suite": "anchored",
+      "counts": {
+        "killed": 60,
+        "survived": 19
+      },
+      "mutation_score": 0.7595,
+      "survivors": [
+        "analysis.x_fit_ses_effect__mutmut_2",
+        "analysis.x_fit_ses_effect__mutmut_8",
+        "analysis.x_fit_ses_effect__mutmut_15",
+        "analysis.x_fit_ses_effect__mutmut_28",
+        "analysis.x_fit_ses_effect__mutmut_35",
+        "analysis.x_fit_ses_effect__mutmut_39",
+        "analysis.x_fit_ses_effect__mutmut_46",
+        "analysis.x_fit_ses_effect__mutmut_48",
+        "analysis.x_fit_ses_effect__mutmut_51",
+        "analysis.x_fit_ses_effect__mutmut_52",
+        "analysis.x_fit_ses_effect__mutmut_53",
+        "analysis.x_fit_ses_effect__mutmut_54",
+        "analysis.x_fit_ses_effect__mutmut_66",
+        "analysis.x_fit_ses_effect__mutmut_67",
+        "analysis.x_fit_ses_effect__mutmut_69",
+        "analysis.x_fit_ses_effect__mutmut_70",
+        "analysis.x_fit_ses_effect__mutmut_73",
+        "analysis.x_fit_ses_effect__mutmut_74",
+        "analysis.x_fit_ses_effect__mutmut_75"
+      ],
+      "survivor_diffs": {
+        "analysis.x_fit_ses_effect__mutmut_2": "# analysis.x_fit_ses_effect__mutmut_2: survived\n--- analysis.py\n+++ analysis.py\n@@ -1,5 +1,5 @@\n def fit_ses_effect(df: pd.DataFrame) -> dict:\n-    y = df[\"BA DEGREE COMPLETED\"].astype(float).to_numpy()\n+    y = df[\"BA DEGREE COMPLETED\"].astype(None).to_numpy()\n     X = np.column_stack([np.ones(len(df)), df[\"SES\"].astype(float).to_numpy()])\n     beta = np.zeros(2)\n     for _ in range(100):\n",
+        "analysis.x_fit_ses_effect__mutmut_8": "# analysis.x_fit_ses_effect__mutmut_8: survived\n--- analysis.py\n+++ analysis.py\n@@ -1,6 +1,6 @@\n def fit_ses_effect(df: pd.DataFrame) -> dict:\n     y = df[\"BA DEGREE COMPLETED\"].astype(float).to_numpy()\n-    X = np.column_stack([np.ones(len(df)), df[\"SES\"].astype(float).to_numpy()])\n+    X = np.column_stack([np.ones(len(df)), df[\"SES\"].astype(None).to_numpy()])\n     beta = np.zeros(2)\n     for _ in range(100):\n         p = 1 / (1 + np.exp(-X @ beta))\n",
+        "analysis.x_fit_ses_effect__mutmut_15": "# analysis.x_fit_ses_effect__mutmut_15: survived\n--- analysis.py\n+++ analysis.py\n@@ -2,7 +2,7 @@\n     y = df[\"BA DEGREE COMPLETED\"].astype(float).to_numpy()\n     X = np.column_stack([np.ones(len(df)), df[\"SES\"].astype(float).to_numpy()])\n     beta = np.zeros(2)\n-    for _ in range(100):\n+    for _ in range(101):\n         p = 1 / (1 + np.exp(-X @ beta))\n         W = p * (1 - p)\n         H = X.T @ (X * W[:, None])\n",
+        "analysis.x_fit_ses_effect__mutmut_28": "# analysis.x_fit_ses_effect__mutmut_28: survived\n--- analysis.py\n+++ analysis.py\n@@ -5,7 +5,7 @@\n     for _ in range(100):\n         p = 1 / (1 + np.exp(-X @ beta))\n         W = p * (1 - p)\n-        H = X.T @ (X * W[:, None])\n+        H = X.T @ (X / W[:, None])\n         step = np.linalg.solve(H, X.T @ (y - p))\n         beta += step\n         if np.max(np.abs(step)) < 1e-12:\n",
+        "analysis.x_fit_ses_effect__mutmut_35": "# analysis.x_fit_ses_effect__mutmut_35: survived\n--- analysis.py\n+++ analysis.py\n@@ -7,7 +7,7 @@\n         W = p * (1 - p)\n         H = X.T @ (X * W[:, None])\n         step = np.linalg.solve(H, X.T @ (y - p))\n-        beta += step\n+        beta = step\n         if np.max(np.abs(step)) < 1e-12:\n             break\n     p = 1 / (1 + np.exp(-X @ beta))\n",
+        "analysis.x_fit_ses_effect__mutmut_39": "# analysis.x_fit_ses_effect__mutmut_39: survived\n--- analysis.py\n+++ analysis.py\n@@ -8,7 +8,7 @@\n         H = X.T @ (X * W[:, None])\n         step = np.linalg.solve(H, X.T @ (y - p))\n         beta += step\n-        if np.max(np.abs(step)) < 1e-12:\n+        if np.max(np.abs(step)) <= 1e-12:\n             break\n     p = 1 / (1 + np.exp(-X @ beta))\n     cov = np.linalg.inv(X.T @ (X * (p * (1 - p))[:, None]))\n",
+        "analysis.x_fit_ses_effect__mutmut_46": "# analysis.x_fit_ses_effect__mutmut_46: survived\n--- analysis.py\n+++ analysis.py\n@@ -10,7 +10,7 @@\n         beta += step\n         if np.max(np.abs(step)) < 1e-12:\n             break\n-    p = 1 / (1 + np.exp(-X @ beta))\n+    p = 1 / (2 + np.exp(-X @ beta))\n     cov = np.linalg.inv(X.T @ (X * (p * (1 - p))[:, None]))\n     coef, se = float(beta[1]), float(math.sqrt(cov[1, 1]))\n     return {\"coef\": coef, \"std_err\": se, \"p_value\": float(2 * stats.norm.sf(abs(coef / se))),\n",
+        "analysis.x_fit_ses_effect__mutmut_48": "# analysis.x_fit_ses_effect__mutmut_48: survived\n--- analysis.py\n+++ analysis.py\n@@ -10,7 +10,7 @@\n         beta += step\n         if np.max(np.abs(step)) < 1e-12:\n             break\n-    p = 1 / (1 + np.exp(-X @ beta))\n+    p = 1 / (1 + np.exp(+X @ beta))\n     cov = np.linalg.inv(X.T @ (X * (p * (1 - p))[:, None]))\n     coef, se = float(beta[1]), float(math.sqrt(cov[1, 1]))\n     return {\"coef\": coef, \"std_err\": se, \"p_value\": float(2 * stats.norm.sf(abs(coef / se))),\n",
+        "analysis.x_fit_ses_effect__mutmut_51": "# analysis.x_fit_ses_effect__mutmut_51: survived\n--- analysis.py\n+++ analysis.py\n@@ -11,7 +11,7 @@\n         if np.max(np.abs(step)) < 1e-12:\n             break\n     p = 1 / (1 + np.exp(-X @ beta))\n-    cov = np.linalg.inv(X.T @ (X * (p * (1 - p))[:, None]))\n+    cov = np.linalg.inv(X.T @ (X / (p * (1 - p))[:, None]))\n     coef, se = float(beta[1]), float(math.sqrt(cov[1, 1]))\n     return {\"coef\": coef, \"std_err\": se, \"p_value\": float(2 * stats.norm.sf(abs(coef / se))),\n             \"odds_ratio\": math.exp(coef), \"n\": int(len(df))}\n",
+        "analysis.x_fit_ses_effect__mutmut_52": "# analysis.x_fit_ses_effect__mutmut_52: survived\n--- analysis.py\n+++ analysis.py\n@@ -11,7 +11,7 @@\n         if np.max(np.abs(step)) < 1e-12:\n             break\n     p = 1 / (1 + np.exp(-X @ beta))\n-    cov = np.linalg.inv(X.T @ (X * (p * (1 - p))[:, None]))\n+    cov = np.linalg.inv(X.T @ (X * (p / (1 - p))[:, None]))\n     coef, se = float(beta[1]), float(math.sqrt(cov[1, 1]))\n     return {\"coef\": coef, \"std_err\": se, \"p_value\": float(2 * stats.norm.sf(abs(coef / se))),\n             \"odds_ratio\": math.exp(coef), \"n\": int(len(df))}\n",
+        "analysis.x_fit_ses_effect__mutmut_53": "# analysis.x_fit_ses_effect__mutmut_53: survived\n--- analysis.py\n+++ analysis.py\n@@ -11,7 +11,7 @@\n         if np.max(np.abs(step)) < 1e-12:\n             break\n     p = 1 / (1 + np.exp(-X @ beta))\n-    cov = np.linalg.inv(X.T @ (X * (p * (1 - p))[:, None]))\n+    cov = np.linalg.inv(X.T @ (X * (p * (1 + p))[:, None]))\n     coef, se = float(beta[1]), float(math.sqrt(cov[1, 1]))\n     return {\"coef\": coef, \"std_err\": se, \"p_value\": float(2 * stats.norm.sf(abs(coef / se))),\n             \"odds_ratio\": math.exp(coef), \"n\": int(len(df))}\n",
+        "analysis.x_fit_ses_effect__mutmut_54": "# analysis.x_fit_ses_effect__mutmut_54: survived\n--- analysis.py\n+++ analysis.py\n@@ -11,7 +11,7 @@\n         if np.max(np.abs(step)) < 1e-12:\n             break\n     p = 1 / (1 + np.exp(-X @ beta))\n-    cov = np.linalg.inv(X.T @ (X * (p * (1 - p))[:, None]))\n+    cov = np.linalg.inv(X.T @ (X * (p * (2 - p))[:, None]))\n     coef, se = float(beta[1]), float(math.sqrt(cov[1, 1]))\n     return {\"coef\": coef, \"std_err\": se, \"p_value\": float(2 * stats.norm.sf(abs(coef / se))),\n             \"odds_ratio\": math.exp(coef), \"n\": int(len(df))}\n",
+        "analysis.x_fit_ses_effect__mutmut_66": "# analysis.x_fit_ses_effect__mutmut_66: survived\n--- analysis.py\n+++ analysis.py\n@@ -13,5 +13,5 @@\n     p = 1 / (1 + np.exp(-X @ beta))\n     cov = np.linalg.inv(X.T @ (X * (p * (1 - p))[:, None]))\n     coef, se = float(beta[1]), float(math.sqrt(cov[1, 1]))\n-    return {\"coef\": coef, \"std_err\": se, \"p_value\": float(2 * stats.norm.sf(abs(coef / se))),\n+    return {\"coef\": coef, \"std_err\": se, \"XXp_valueXX\": float(2 * stats.norm.sf(abs(coef / se))),\n             \"odds_ratio\": math.exp(coef), \"n\": int(len(df))}\n",
+        "analysis.x_fit_ses_effect__mutmut_67": "# analysis.x_fit_ses_effect__mutmut_67: survived\n--- analysis.py\n+++ analysis.py\n@@ -13,5 +13,5 @@\n     p = 1 / (1 + np.exp(-X @ beta))\n     cov = np.linalg.inv(X.T @ (X * (p * (1 - p))[:, None]))\n     coef, se = float(beta[1]), float(math.sqrt(cov[1, 1]))\n-    return {\"coef\": coef, \"std_err\": se, \"p_value\": float(2 * stats.norm.sf(abs(coef / se))),\n+    return {\"coef\": coef, \"std_err\": se, \"P_VALUE\": float(2 * stats.norm.sf(abs(coef / se))),\n             \"odds_ratio\": math.exp(coef), \"n\": int(len(df))}\n",
+        "analysis.x_fit_ses_effect__mutmut_69": "# analysis.x_fit_ses_effect__mutmut_69: survived\n--- analysis.py\n+++ analysis.py\n@@ -13,5 +13,5 @@\n     p = 1 / (1 + np.exp(-X @ beta))\n     cov = np.linalg.inv(X.T @ (X * (p * (1 - p))[:, None]))\n     coef, se = float(beta[1]), float(math.sqrt(cov[1, 1]))\n-    return {\"coef\": coef, \"std_err\": se, \"p_value\": float(2 * stats.norm.sf(abs(coef / se))),\n+    return {\"coef\": coef, \"std_err\": se, \"p_value\": float(2 / stats.norm.sf(abs(coef / se))),\n             \"odds_ratio\": math.exp(coef), \"n\": int(len(df))}\n",
+        "analysis.x_fit_ses_effect__mutmut_70": "# analysis.x_fit_ses_effect__mutmut_70: survived\n--- analysis.py\n+++ analysis.py\n@@ -13,5 +13,5 @@\n     p = 1 / (1 + np.exp(-X @ beta))\n     cov = np.linalg.inv(X.T @ (X * (p * (1 - p))[:, None]))\n     coef, se = float(beta[1]), float(math.sqrt(cov[1, 1]))\n-    return {\"coef\": coef, \"std_err\": se, \"p_value\": float(2 * stats.norm.sf(abs(coef / se))),\n+    return {\"coef\": coef, \"std_err\": se, \"p_value\": float(3 * stats.norm.sf(abs(coef / se))),\n             \"odds_ratio\": math.exp(coef), \"n\": int(len(df))}\n",
+        "analysis.x_fit_ses_effect__mutmut_73": "# analysis.x_fit_ses_effect__mutmut_73: survived\n--- analysis.py\n+++ analysis.py\n@@ -13,5 +13,5 @@\n     p = 1 / (1 + np.exp(-X @ beta))\n     cov = np.linalg.inv(X.T @ (X * (p * (1 - p))[:, None]))\n     coef, se = float(beta[1]), float(math.sqrt(cov[1, 1]))\n-    return {\"coef\": coef, \"std_err\": se, \"p_value\": float(2 * stats.norm.sf(abs(coef / se))),\n+    return {\"coef\": coef, \"std_err\": se, \"p_value\": float(2 * stats.norm.sf(abs(coef * se))),\n             \"odds_ratio\": math.exp(coef), \"n\": int(len(df))}\n",
+        "analysis.x_fit_ses_effect__mutmut_74": "# analysis.x_fit_ses_effect__mutmut_74: survived\n--- analysis.py\n+++ analysis.py\n@@ -14,4 +14,4 @@\n     cov = np.linalg.inv(X.T @ (X * (p * (1 - p))[:, None]))\n     coef, se = float(beta[1]), float(math.sqrt(cov[1, 1]))\n     return {\"coef\": coef, \"std_err\": se, \"p_value\": float(2 * stats.norm.sf(abs(coef / se))),\n-            \"odds_ratio\": math.exp(coef), \"n\": int(len(df))}\n+            \"XXodds_ratioXX\": math.exp(coef), \"n\": int(len(df))}\n",
+        "analysis.x_fit_ses_effect__mutmut_75": "# analysis.x_fit_ses_effect__mutmut_75: survived\n--- analysis.py\n+++ analysis.py\n@@ -14,4 +14,4 @@\n     cov = np.linalg.inv(X.T @ (X * (p * (1 - p))[:, None]))\n     coef, se = float(beta[1]), float(math.sqrt(cov[1, 1]))\n     return {\"coef\": coef, \"std_err\": se, \"p_value\": float(2 * stats.norm.sf(abs(coef / se))),\n-            \"odds_ratio\": math.exp(coef), \"n\": int(len(df))}\n+            \"ODDS_RATIO\": math.exp(coef), \"n\": int(len(df))}\n"
+      },
+      "run_tail": ""
+    },
+    {
+      "suite": "v1",
+      "counts": {
+        "killed": 74,
+        "survived": 5
+      },
+      "mutation_score": 0.9367,
+      "survivors": [
+        "analysis.x_fit_ses_effect__mutmut_2",
+        "analysis.x_fit_ses_effect__mutmut_8",
+        "analysis.x_fit_ses_effect__mutmut_15",
+        "analysis.x_fit_ses_effect__mutmut_39",
+        "analysis.x_fit_ses_effect__mutmut_48"
+      ],
+      "survivor_diffs": {
+        "analysis.x_fit_ses_effect__mutmut_2": "# analysis.x_fit_ses_effect__mutmut_2: survived\n--- analysis.py\n+++ analysis.py\n@@ -1,5 +1,5 @@\n def fit_ses_effect(df: pd.DataFrame) -> dict:\n-    y = df[\"BA DEGREE COMPLETED\"].astype(float).to_numpy()\n+    y = df[\"BA DEGREE COMPLETED\"].astype(None).to_numpy()\n     X = np.column_stack([np.ones(len(df)), df[\"SES\"].astype(float).to_numpy()])\n     beta = np.zeros(2)\n     for _ in range(100):\n",
+        "analysis.x_fit_ses_effect__mutmut_8": "# analysis.x_fit_ses_effect__mutmut_8: survived\n--- analysis.py\n+++ analysis.py\n@@ -1,6 +1,6 @@\n def fit_ses_effect(df: pd.DataFrame) -> dict:\n     y = df[\"BA DEGREE COMPLETED\"].astype(float).to_numpy()\n-    X = np.column_stack([np.ones(len(df)), df[\"SES\"].astype(float).to_numpy()])\n+    X = np.column_stack([np.ones(len(df)), df[\"SES\"].astype(None).to_numpy()])\n     beta = np.zeros(2)\n     for _ in range(100):\n         p = 1 / (1 + np.exp(-X @ beta))\n",
+        "analysis.x_fit_ses_effect__mutmut_15": "# analysis.x_fit_ses_effect__mutmut_15: survived\n--- analysis.py\n+++ analysis.py\n@@ -2,7 +2,7 @@\n     y = df[\"BA DEGREE COMPLETED\"].astype(float).to_numpy()\n     X = np.column_stack([np.ones(len(df)), df[\"SES\"].astype(float).to_numpy()])\n     beta = np.zeros(2)\n-    for _ in range(100):\n+    for _ in range(101):\n         p = 1 / (1 + np.exp(-X @ beta))\n         W = p * (1 - p)\n         H = X.T @ (X * W[:, None])\n",
+        "analysis.x_fit_ses_effect__mutmut_39": "# analysis.x_fit_ses_effect__mutmut_39: survived\n--- analysis.py\n+++ analysis.py\n@@ -8,7 +8,7 @@\n         H = X.T @ (X * W[:, None])\n         step = np.linalg.solve(H, X.T @ (y - p))\n         beta += step\n-        if np.max(np.abs(step)) < 1e-12:\n+        if np.max(np.abs(step)) <= 1e-12:\n             break\n     p = 1 / (1 + np.exp(-X @ beta))\n     cov = np.linalg.inv(X.T @ (X * (p * (1 - p))[:, None]))\n",
+        "analysis.x_fit_ses_effect__mutmut_48": "# analysis.x_fit_ses_effect__mutmut_48: survived\n--- analysis.py\n+++ analysis.py\n@@ -10,7 +10,7 @@\n         beta += step\n         if np.max(np.abs(step)) < 1e-12:\n             break\n-    p = 1 / (1 + np.exp(-X @ beta))\n+    p = 1 / (1 + np.exp(+X @ beta))\n     cov = np.linalg.inv(X.T @ (X * (p * (1 - p))[:, None]))\n     coef, se = float(beta[1]), float(math.sqrt(cov[1, 1]))\n     return {\"coef\": coef, \"std_err\": se, \"p_value\": float(2 * stats.norm.sf(abs(coef / se))),\n"
+      },
+      "run_tail": ""
+    },
+    {
+      "suite": "v2",
+      "counts": {
+        "killed": 74,
+        "survived": 5
+      },
+      "mutation_score": 0.9367,
+      "survivors": [
+        "analysis.x_fit_ses_effect__mutmut_2",
+        "analysis.x_fit_ses_effect__mutmut_8",
+        "analysis.x_fit_ses_effect__mutmut_15",
+        "analysis.x_fit_ses_effect__mutmut_39",
+        "analysis.x_fit_ses_effect__mutmut_48"
+      ],
+      "survivor_diffs": {
+        "analysis.x_fit_ses_effect__mutmut_2": "# analysis.x_fit_ses_effect__mutmut_2: survived\n--- analysis.py\n+++ analysis.py\n@@ -1,5 +1,5 @@\n def fit_ses_effect(df: pd.DataFrame) -> dict:\n-    y = df[\"BA DEGREE COMPLETED\"].astype(float).to_numpy()\n+    y = df[\"BA DEGREE COMPLETED\"].astype(None).to_numpy()\n     X = np.column_stack([np.ones(len(df)), df[\"SES\"].astype(float).to_numpy()])\n     beta = np.zeros(2)\n     for _ in range(100):\n",
+        "analysis.x_fit_ses_effect__mutmut_8": "# analysis.x_fit_ses_effect__mutmut_8: survived\n--- analysis.py\n+++ analysis.py\n@@ -1,6 +1,6 @@\n def fit_ses_effect(df: pd.DataFrame) -> dict:\n     y = df[\"BA DEGREE COMPLETED\"].astype(float).to_numpy()\n-    X = np.column_stack([np.ones(len(df)), df[\"SES\"].astype(float).to_numpy()])\n+    X = np.column_stack([np.ones(len(df)), df[\"SES\"].astype(None).to_numpy()])\n     beta = np.zeros(2)\n     for _ in range(100):\n         p = 1 / (1 + np.exp(-X @ beta))\n",
+        "analysis.x_fit_ses_effect__mutmut_15": "# analysis.x_fit_ses_effect__mutmut_15: survived\n--- analysis.py\n+++ analysis.py\n@@ -2,7 +2,7 @@\n     y = df[\"BA DEGREE COMPLETED\"].astype(float).to_numpy()\n     X = np.column_stack([np.ones(len(df)), df[\"SES\"].astype(float).to_numpy()])\n     beta = np.zeros(2)\n-    for _ in range(100):\n+    for _ in range(101):\n         p = 1 / (1 + np.exp(-X @ beta))\n         W = p * (1 - p)\n         H = X.T @ (X * W[:, None])\n",
+        "analysis.x_fit_ses_effect__mutmut_39": "# analysis.x_fit_ses_effect__mutmut_39: survived\n--- analysis.py\n+++ analysis.py\n@@ -8,7 +8,7 @@\n         H = X.T @ (X * W[:, None])\n         step = np.linalg.solve(H, X.T @ (y - p))\n         beta += step\n-        if np.max(np.abs(step)) < 1e-12:\n+        if np.max(np.abs(step)) <= 1e-12:\n             break\n     p = 1 / (1 + np.exp(-X @ beta))\n     cov = np.linalg.inv(X.T @ (X * (p * (1 - p))[:, None]))\n",
+        "analysis.x_fit_ses_effect__mutmut_48": "# analysis.x_fit_ses_effect__mutmut_48: survived\n--- analysis.py\n+++ analysis.py\n@@ -10,7 +10,7 @@\n         beta += step\n         if np.max(np.abs(step)) < 1e-12:\n             break\n-    p = 1 / (1 + np.exp(-X @ beta))\n+    p = 1 / (1 + np.exp(+X @ beta))\n     cov = np.linalg.inv(X.T @ (X * (p * (1 - p))[:, None]))\n     coef, se = float(beta[1]), float(math.sqrt(cov[1, 1]))\n     return {\"coef\": coef, \"std_err\": se, \"p_value\": float(2 * stats.norm.sf(abs(coef / se))),\n"
+      },
+      "run_tail": ""
+    },
+    {
+      "suite": "visible",
+      "counts": {
+        "killed": 56,
+        "survived": 23
+      },
+      "mutation_score": 0.7089,
+      "survivors": [
+        "analysis.x_fit_ses_effect__mutmut_2",
+        "analysis.x_fit_ses_effect__mutmut_8",
+        "analysis.x_fit_ses_effect__mutmut_15",
+        "analysis.x_fit_ses_effect__mutmut_17",
+        "analysis.x_fit_ses_effect__mutmut_19",
+        "analysis.x_fit_ses_effect__mutmut_20",
+        "analysis.x_fit_ses_effect__mutmut_24",
+        "analysis.x_fit_ses_effect__mutmut_25",
+        "analysis.x_fit_ses_effect__mutmut_26",
+        "analysis.x_fit_ses_effect__mutmut_28",
+        "analysis.x_fit_ses_effect__mutmut_35",
+        "analysis.x_fit_ses_effect__mutmut_39",
+        "analysis.x_fit_ses_effect__mutmut_40",
+        "analysis.x_fit_ses_effect__mutmut_44",
+        "analysis.x_fit_ses_effect__mutmut_46",
+        "analysis.x_fit_ses_effect__mutmut_48",
+        "analysis.x_fit_ses_effect__mutmut_51",
+        "analysis.x_fit_ses_effect__mutmut_52",
+        "analysis.x_fit_ses_effect__mutmut_53",
+        "analysis.x_fit_ses_effect__mutmut_54",
+        "analysis.x_fit_ses_effect__mutmut_69",
+        "analysis.x_fit_ses_effect__mutmut_70",
+        "analysis.x_fit_ses_effect__mutmut_73"
+      ],
+      "survivor_diffs": {
+        "analysis.x_fit_ses_effect__mutmut_2": "# analysis.x_fit_ses_effect__mutmut_2: survived\n--- analysis.py\n+++ analysis.py\n@@ -1,5 +1,5 @@\n def fit_ses_effect(df: pd.DataFrame) -> dict:\n-    y = df[\"BA DEGREE COMPLETED\"].astype(float).to_numpy()\n+    y = df[\"BA DEGREE COMPLETED\"].astype(None).to_numpy()\n     X = np.column_stack([np.ones(len(df)), df[\"SES\"].astype(float).to_numpy()])\n     beta = np.zeros(2)\n     for _ in range(100):\n",
+        "analysis.x_fit_ses_effect__mutmut_8": "# analysis.x_fit_ses_effect__mutmut_8: survived\n--- analysis.py\n+++ analysis.py\n@@ -1,6 +1,6 @@\n def fit_ses_effect(df: pd.DataFrame) -> dict:\n     y = df[\"BA DEGREE COMPLETED\"].astype(float).to_numpy()\n-    X = np.column_stack([np.ones(len(df)), df[\"SES\"].astype(float).to_numpy()])\n+    X = np.column_stack([np.ones(len(df)), df[\"SES\"].astype(None).to_numpy()])\n     beta = np.zeros(2)\n     for _ in range(100):\n         p = 1 / (1 + np.exp(-X @ beta))\n",
+        "analysis.x_fit_ses_effect__mutmut_15": "# analysis.x_fit_ses_effect__mutmut_15: survived\n--- analysis.py\n+++ analysis.py\n@@ -2,7 +2,7 @@\n     y = df[\"BA DEGREE COMPLETED\"].astype(float).to_numpy()\n     X = np.column_stack([np.ones(len(df)), df[\"SES\"].astype(float).to_numpy()])\n     beta = np.zeros(2)\n-    for _ in range(100):\n+    for _ in range(101):\n         p = 1 / (1 + np.exp(-X @ beta))\n         W = p * (1 - p)\n         H = X.T @ (X * W[:, None])\n",
+        "analysis.x_fit_ses_effect__mutmut_17": "# analysis.x_fit_ses_effect__mutmut_17: survived\n--- analysis.py\n+++ analysis.py\n@@ -3,7 +3,7 @@\n     X = np.column_stack([np.ones(len(df)), df[\"SES\"].astype(float).to_numpy()])\n     beta = np.zeros(2)\n     for _ in range(100):\n-        p = 1 / (1 + np.exp(-X @ beta))\n+        p = 1 * (1 + np.exp(-X @ beta))\n         W = p * (1 - p)\n         H = X.T @ (X * W[:, None])\n         step = np.linalg.solve(H, X.T @ (y - p))\n",
+        "analysis.x_fit_ses_effect__mutmut_19": "# analysis.x_fit_ses_effect__mutmut_19: survived\n--- analysis.py\n+++ analysis.py\n@@ -3,7 +3,7 @@\n     X = np.column_stack([np.ones(len(df)), df[\"SES\"].astype(float).to_numpy()])\n     beta = np.zeros(2)\n     for _ in range(100):\n-        p = 1 / (1 + np.exp(-X @ beta))\n+        p = 1 / (1 - np.exp(-X @ beta))\n         W = p * (1 - p)\n         H = X.T @ (X * W[:, None])\n         step = np.linalg.solve(H, X.T @ (y - p))\n",
+        "analysis.x_fit_ses_effect__mutmut_20": "# analysis.x_fit_ses_effect__mutmut_20: survived\n--- analysis.py\n+++ analysis.py\n@@ -3,7 +3,7 @@\n     X = np.column_stack([np.ones(len(df)), df[\"SES\"].astype(float).to_numpy()])\n     beta = np.zeros(2)\n     for _ in range(100):\n-        p = 1 / (1 + np.exp(-X @ beta))\n+        p = 1 / (2 + np.exp(-X @ beta))\n         W = p * (1 - p)\n         H = X.T @ (X * W[:, None])\n         step = np.linalg.solve(H, X.T @ (y - p))\n",
+        "analysis.x_fit_ses_effect__mutmut_24": "# analysis.x_fit_ses_effect__mutmut_24: survived\n--- analysis.py\n+++ analysis.py\n@@ -4,7 +4,7 @@\n     beta = np.zeros(2)\n     for _ in range(100):\n         p = 1 / (1 + np.exp(-X @ beta))\n-        W = p * (1 - p)\n+        W = p / (1 - p)\n         H = X.T @ (X * W[:, None])\n         step = np.linalg.solve(H, X.T @ (y - p))\n         beta += step\n",
+        "analysis.x_fit_ses_effect__mutmut_25": "# analysis.x_fit_ses_effect__mutmut_25: survived\n--- analysis.py\n+++ analysis.py\n@@ -4,7 +4,7 @@\n     beta = np.zeros(2)\n     for _ in range(100):\n         p = 1 / (1 + np.exp(-X @ beta))\n-        W = p * (1 - p)\n+        W = p * (1 + p)\n         H = X.T @ (X * W[:, None])\n         step = np.linalg.solve(H, X.T @ (y - p))\n         beta += step\n",
+        "analysis.x_fit_ses_effect__mutmut_26": "# analysis.x_fit_ses_effect__mutmut_26: survived\n--- analysis.py\n+++ analysis.py\n@@ -4,7 +4,7 @@\n     beta = np.zeros(2)\n     for _ in range(100):\n         p = 1 / (1 + np.exp(-X @ beta))\n-        W = p * (1 - p)\n+        W = p * (2 - p)\n         H = X.T @ (X * W[:, None])\n         step = np.linalg.solve(H, X.T @ (y - p))\n         beta += step\n",
+        "analysis.x_fit_ses_effect__mutmut_28": "# analysis.x_fit_ses_effect__mutmut_28: survived\n--- analysis.py\n+++ analysis.py\n@@ -5,7 +5,7 @@\n     for _ in range(100):\n         p = 1 / (1 + np.exp(-X @ beta))\n         W = p * (1 - p)\n-        H = X.T @ (X * W[:, None])\n+        H = X.T @ (X / W[:, None])\n         step = np.linalg.solve(H, X.T @ (y - p))\n         beta += step\n         if np.max(np.abs(step)) < 1e-12:\n",
+        "analysis.x_fit_ses_effect__mutmut_35": "# analysis.x_fit_ses_effect__mutmut_35: survived\n--- analysis.py\n+++ analysis.py\n@@ -7,7 +7,7 @@\n         W = p * (1 - p)\n         H = X.T @ (X * W[:, None])\n         step = np.linalg.solve(H, X.T @ (y - p))\n-        beta += step\n+        beta = step\n         if np.max(np.abs(step)) < 1e-12:\n             break\n     p = 1 / (1 + np.exp(-X @ beta))\n",
+        "analysis.x_fit_ses_effect__mutmut_39": "# analysis.x_fit_ses_effect__mutmut_39: survived\n--- analysis.py\n+++ analysis.py\n@@ -8,7 +8,7 @@\n         H = X.T @ (X * W[:, None])\n         step = np.linalg.solve(H, X.T @ (y - p))\n         beta += step\n-        if np.max(np.abs(step)) < 1e-12:\n+        if np.max(np.abs(step)) <= 1e-12:\n             break\n     p = 1 / (1 + np.exp(-X @ beta))\n     cov = np.linalg.inv(X.T @ (X * (p * (1 - p))[:, None]))\n",
+        "analysis.x_fit_ses_effect__mutmut_40": "# analysis.x_fit_ses_effect__mutmut_40: survived\n--- analysis.py\n+++ analysis.py\n@@ -8,7 +8,7 @@\n         H = X.T @ (X * W[:, None])\n         step = np.linalg.solve(H, X.T @ (y - p))\n         beta += step\n-        if np.max(np.abs(step)) < 1e-12:\n+        if np.max(np.abs(step)) < 1.000000000001:\n             break\n     p = 1 / (1 + np.exp(-X @ beta))\n     cov = np.linalg.inv(X.T @ (X * (p * (1 - p))[:, None]))\n",
+        "analysis.x_fit_ses_effect__mutmut_44": "# analysis.x_fit_ses_effect__mutmut_44: survived\n--- analysis.py\n+++ analysis.py\n@@ -10,7 +10,7 @@\n         beta += step\n         if np.max(np.abs(step)) < 1e-12:\n             break\n-    p = 1 / (1 + np.exp(-X @ beta))\n+    p = 2 / (1 + np.exp(-X @ beta))\n     cov = np.linalg.inv(X.T @ (X * (p * (1 - p))[:, None]))\n     coef, se = float(beta[1]), float(math.sqrt(cov[1, 1]))\n     return {\"coef\": coef, \"std_err\": se, \"p_value\": float(2 * stats.norm.sf(abs(coef / se))),\n",
+        "analysis.x_fit_ses_effect__mutmut_46": "# analysis.x_fit_ses_effect__mutmut_46: survived\n--- analysis.py\n+++ analysis.py\n@@ -10,7 +10,7 @@\n         beta += step\n         if np.max(np.abs(step)) < 1e-12:\n             break\n-    p = 1 / (1 + np.exp(-X @ beta))\n+    p = 1 / (2 + np.exp(-X @ beta))\n     cov = np.linalg.inv(X.T @ (X * (p * (1 - p))[:, None]))\n     coef, se = float(beta[1]), float(math.sqrt(cov[1, 1]))\n     return {\"coef\": coef, \"std_err\": se, \"p_value\": float(2 * stats.norm.sf(abs(coef / se))),\n",
+        "analysis.x_fit_ses_effect__mutmut_48": "# analysis.x_fit_ses_effect__mutmut_48: survived\n--- analysis.py\n+++ analysis.py\n@@ -10,7 +10,7 @@\n         beta += step\n         if np.max(np.abs(step)) < 1e-12:\n             break\n-    p = 1 / (1 + np.exp(-X @ beta))\n+    p = 1 / (1 + np.exp(+X @ beta))\n     cov = np.linalg.inv(X.T @ (X * (p * (1 - p))[:, None]))\n     coef, se = float(beta[1]), float(math.sqrt(cov[1, 1]))\n     return {\"coef\": coef, \"std_err\": se, \"p_value\": float(2 * stats.norm.sf(abs(coef / se))),\n",
+        "analysis.x_fit_ses_effect__mutmut_51": "# analysis.x_fit_ses_effect__mutmut_51: survived\n--- analysis.py\n+++ analysis.py\n@@ -11,7 +11,7 @@\n         if np.max(np.abs(step)) < 1e-12:\n             break\n     p = 1 / (1 + np.exp(-X @ beta))\n-    cov = np.linalg.inv(X.T @ (X * (p * (1 - p))[:, None]))\n+    cov = np.linalg.inv(X.T @ (X / (p * (1 - p))[:, None]))\n     coef, se = float(beta[1]), float(math.sqrt(cov[1, 1]))\n     return {\"coef\": coef, \"std_err\": se, \"p_value\": float(2 * stats.norm.sf(abs(coef / se))),\n             \"odds_ratio\": math.exp(coef), \"n\": int(len(df))}\n",
+        "analysis.x_fit_ses_effect__mutmut_52": "# analysis.x_fit_ses_effect__mutmut_52: survived\n--- analysis.py\n+++ analysis.py\n@@ -11,7 +11,7 @@\n         if np.max(np.abs(step)) < 1e-12:\n             break\n     p = 1 / (1 + np.exp(-X @ beta))\n-    cov = np.linalg.inv(X.T @ (X * (p * (1 - p))[:, None]))\n+    cov = np.linalg.inv(X.T @ (X * (p / (1 - p))[:, None]))\n     coef, se = float(beta[1]), float(math.sqrt(cov[1, 1]))\n     return {\"coef\": coef, \"std_err\": se, \"p_value\": float(2 * stats.norm.sf(abs(coef / se))),\n             \"odds_ratio\": math.exp(coef), \"n\": int(len(df))}\n",
+        "analysis.x_fit_ses_effect__mutmut_53": "# analysis.x_fit_ses_effect__mutmut_53: survived\n--- analysis.py\n+++ analysis.py\n@@ -11,7 +11,7 @@\n         if np.max(np.abs(step)) < 1e-12:\n             break\n     p = 1 / (1 + np.exp(-X @ beta))\n-    cov = np.linalg.inv(X.T @ (X * (p * (1 - p))[:, None]))\n+    cov = np.linalg.inv(X.T @ (X * (p * (1 + p))[:, None]))\n     coef, se = float(beta[1]), float(math.sqrt(cov[1, 1]))\n     return {\"coef\": coef, \"std_err\": se, \"p_value\": float(2 * stats.norm.sf(abs(coef / se))),\n             \"odds_ratio\": math.exp(coef), \"n\": int(len(df))}\n",
+        "analysis.x_fit_ses_effect__mutmut_54": "# analysis.x_fit_ses_effect__mutmut_54: survived\n--- analysis.py\n+++ analysis.py\n@@ -11,7 +11,7 @@\n         if np.max(np.abs(step)) < 1e-12:\n             break\n     p = 1 / (1 + np.exp(-X @ beta))\n-    cov = np.linalg.inv(X.T @ (X * (p * (1 - p))[:, None]))\n+    cov = np.linalg.inv(X.T @ (X * (p * (2 - p))[:, None]))\n     coef, se = float(beta[1]), float(math.sqrt(cov[1, 1]))\n     return {\"coef\": coef, \"std_err\": se, \"p_value\": float(2 * stats.norm.sf(abs(coef / se))),\n             \"odds_ratio\": math.exp(coef), \"n\": int(len(df))}\n",
+        "analysis.x_fit_ses_effect__mutmut_69": "# analysis.x_fit_ses_effect__mutmut_69: survived\n--- analysis.py\n+++ analysis.py\n@@ -13,5 +13,5 @@\n     p = 1 / (1 + np.exp(-X @ beta))\n     cov = np.linalg.inv(X.T @ (X * (p * (1 - p))[:, None]))\n     coef, se = float(beta[1]), float(math.sqrt(cov[1, 1]))\n-    return {\"coef\": coef, \"std_err\": se, \"p_value\": float(2 * stats.norm.sf(abs(coef / se))),\n+    return {\"coef\": coef, \"std_err\": se, \"p_value\": float(2 / stats.norm.sf(abs(coef / se))),\n             \"odds_ratio\": math.exp(coef), \"n\": int(len(df))}\n",
+        "analysis.x_fit_ses_effect__mutmut_70": "# analysis.x_fit_ses_effect__mutmut_70: survived\n--- analysis.py\n+++ analysis.py\n@@ -13,5 +13,5 @@\n     p = 1 / (1 + np.exp(-X @ beta))\n     cov = np.linalg.inv(X.T @ (X * (p * (1 - p))[:, None]))\n     coef, se = float(beta[1]), float(math.sqrt(cov[1, 1]))\n-    return {\"coef\": coef, \"std_err\": se, \"p_value\": float(2 * stats.norm.sf(abs(coef / se))),\n+    return {\"coef\": coef, \"std_err\": se, \"p_value\": float(3 * stats.norm.sf(abs(coef / se))),\n             \"odds_ratio\": math.exp(coef), \"n\": int(len(df))}\n",
+        "analysis.x_fit_ses_effect__mutmut_73": "# analysis.x_fit_ses_effect__mutmut_73: survived\n--- analysis.py\n+++ analysis.py\n@@ -13,5 +13,5 @@\n     p = 1 / (1 + np.exp(-X @ beta))\n     cov = np.linalg.inv(X.T @ (X * (p * (1 - p))[:, None]))\n     coef, se = float(beta[1]), float(math.sqrt(cov[1, 1]))\n-    return {\"coef\": coef, \"std_err\": se, \"p_value\": float(2 * stats.norm.sf(abs(coef / se))),\n+    return {\"coef\": coef, \"std_err\": se, \"p_value\": float(2 * stats.norm.sf(abs(coef * se))),\n             \"odds_ratio\": math.exp(coef), \"n\": int(len(df))}\n"
+      },
+      "run_tail": ""
+    }
+  ]
+}
