@@ -62,11 +62,16 @@ def test_recovers_planted_median_effects():
         assert abs(r["coef"][t] - v) < 1500, t
 
 
-def test_continuous_outcome_matches_unique_minimiser():
-    """With continuous outcomes the minimiser is unique: compare coefficients."""
+def test_continuous_outcome_is_optimal():
+    """Continuous outcomes, optimality oracle.
+
+    Until 2026-11-05 this test compared coefficients with the reference
+    (assuming a unique minimiser). Agent runs showed that is false: with only
+    indicator regressors the minimiser can be non-unique even for continuous
+    y (here ever_jailed in [-8109.92, -8001.42] gives the same check loss), so
+    the test raised false alarms on correct solutions. It now uses the same
+    check-loss oracle as the other tests.
+    """
     d = synthetic(3000, 5)
     r = fit_wealth_quantile(d, 0.8)
-    gold = {"intercept": 57126.8264, "black": -19863.2397, "hispanic": -10076.8050,
-            "male": 4649.2364, "ever_jailed": -8109.9183}
-    for t in TERMS:
-        assert r["coef"][t] == pytest.approx(gold[t], abs=0.05), t
+    assert same_loss(check_loss(d, 0.8, 1996, r["coef"]), optimal_loss(d, 0.8, 1996))
