@@ -31,3 +31,4 @@ textual==8.2.8
 typing_extensions==4.16.0
 tzdata==2026.6
 wrapt==2.6.0.dev1
+h5py==3.16.0
