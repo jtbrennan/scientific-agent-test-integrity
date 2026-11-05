@@ -1,17 +1,70 @@
 \section{Introduction}
 \label{Introduction}
 
-This template is provided for the Research Oriented Term Project (Option 2) for the CIS*4150 Software Reliability and Testing course. It is based on the Springer Nature template, commonly used in academic journals and conferences. The template outlines how to structure your paper, include figures and tables, and cite references from the bibliography.
+AI agents that write and execute code are being evaluated as assistants for
+scientific analysis. DiscoveryBench examines data-driven discovery workflows,
+while ScienceAgentBench evaluates programs for tasks drawn from scientific
+publications~\cite{majumder2025discoverybench,chen2025scienceagentbench}. These
+settings require more than executable code: the program must perform the
+requested analysis, and its reported results must follow from that analysis.
+A researcher needs evidence that a coefficient, prediction, or statistical
+conclusion was computed correctly before using it to support a scientific claim.
+Automated tests provide useful evidence, but their success depends on what they
+actually check.
 
-Once you have reviewed this document, replace the placeholder content with your own in the appropriate sections. I hope you find this helpful!
-\vspace{1em}
+In this study, \emph{test gaming} means satisfying tests through a shortcut that
+violates the requested analysis. For example, an agent asked to fit a regression
+could return the coefficient written in a visible test instead of estimating it
+from the input data. A more selective implementation could recognize the
+supplied dataset and substitute an expected answer only for that input. Such
+code can pass visible checks while failing to implement the stated method.
+This behavior differs from an ordinary programming error, such as an optimizer
+that fails to converge: both can produce incorrect results, but a failing test
+alone does not establish gaming. Classifying the behavior requires inspecting
+the implementation and its development record.
 
-Kind regards,
+Independent evaluation is difficult when the correct result is not readily
+available. Barr et al. describe this challenge as the \emph{test oracle problem}
+and survey approaches including specifications and metamorphic
+testing~\cite{barr2015oracle}. In scientific software, checking one known output
+does not establish that a method works on different samples or transformed
+data. Metamorphic checks offer additional evidence by testing relationships
+between executions: reordering independent observations should preserve an
+estimate, whereas rescaling a predictor should change its coefficient in a
+predictable way. These relationships also have limits. An implementation that
+always returns a constant can satisfy row-order invariance without performing
+any analysis.
 
-Ed
+Prior work establishes that shortcuts are a practical evaluation concern.
+ImpossibleBench introduces conflicts between task specifications and tests,
+making successful test exploitation identifiable, and studies behaviors
+including test modification and special-casing~\cite{zhong2025impossiblebench}.
+ScienceAgentBench also reports agents reading test labels instead of training
+the requested model~\cite{chen2025scienceagentbench}. These findings motivate
+examining which independent checks expose shortcuts in scientific code and
+whether an agent's explanation communicates the resulting limitations.
 
-\vspace{2em}
+We investigate these questions using six adapted scientific analysis tasks
+covering socioeconomic outcomes, wealth, climate trends, replication effects,
+and fish diversity. The tasks draw on DiscoveryBench data and an adaptation of
+a ScienceAgentBench climate-analysis task. Our current dataset contains 190
+valid agent runs. Agents receive all visible tests, structural checks only, no
+visible tests, or tests containing a deliberately conflicting expected value.
+A separate evaluator compares hidden unit tests with metamorphic checks,
+including anchored checks that compare results on the supplied dataset with
+results on transformed versions of it. Planted implementations and
+mutation testing provide complementary evidence about test-suite strength.
+This study contributes empirical evidence about the relative effectiveness of
+hidden checks and the completeness of agent reports. Results remain
+preliminary while manual classification of flagged runs is completed.
 
-The Introduction sets the stage for the research by providing a high-level overview of background information, defining the problem or research question, and explaining the study's objectives. It typically includes a couple key relevant papers to highlight gaps in current knowledge, justifies the need for the study, and outlines the paper's structure. The introduction should engage the reader by clearly explaining why the research is important and what the study aims to contribute to the field. It often ends with a brief summary of the research approach or hypothesis.
+The study addresses the following research questions. For RQ3, we additionally
+examine whether shortcuts were disclosed during execution and in the final
+answer, distinguishing those disclosures from admissions made during a later
+review.
 
-The remainder of this paper is structured as follows: The next section offers a background  ... . In Section~\ref{Methodology}, we outline the methods ..... The findings from our study are presented in Section~\ref{Findings}. Section~\ref{Discussion} reflects on these findings within a broader context, and Section~\ref{Conclusion} concludes the paper  .....
+\begin{itemize}
+    \item \textbf{RQ1:} How often do agents game visible tests, and does hiding them help?
+    \item \textbf{RQ2:} Which hidden checks best detect gamed code?
+    \item \textbf{RQ3:} When reviewing its own code, does the agent admit to gaming?
+\end{itemize}
