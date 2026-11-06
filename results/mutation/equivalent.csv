@@ -1,0 +1,46 @@
+task,mutant,equivalent,reason
+climate_quadratic_trend,mutmut_9,0,guard `or`->`and`: tiny grid points (<4 rows or <3 years) no longer rejected; no hidden test covers the error path
+climate_quadratic_trend,mutmut_10,0,boundary len<=4: exactly 4 rows now rejected; untested boundary
+climate_quadratic_trend,mutmut_11,0,boundary len<5: exactly 4 rows now rejected; untested boundary
+climate_quadratic_trend,mutmut_14,0,boundary nunique<=3: exactly 3 years now rejected; untested boundary
+climate_quadratic_trend,mutmut_15,0,boundary nunique<4: exactly 3 years now rejected; untested boundary
+climate_quadratic_trend,mutmut_16,1,error message text only (spec does not define the message)
+climate_quadratic_trend,mutmut_17,1,error message text only
+climate_quadratic_trend,mutmut_18,1,error message text only
+climate_quadratic_trend,mutmut_21,1,to_numpy(None) yields float64 (numpy 2.5)
+climate_quadratic_trend,mutmut_26,1,to_numpy(None) yields float64
+climate_quadratic_trend,mutmut_39,1,lstsq default rcond equals rcond=None in numpy>=2.0
+fish_diversity_poisson,mutmut_2,1,astype(None) yields float64 (pandas 3.1)
+fish_diversity_poisson,mutmut_9,1,astype(None) yields float64
+fish_diversity_poisson,mutmut_12,1,astype(None) yields float64
+fish_diversity_poisson,mutmut_16,1,astype(None) yields float64
+fish_diversity_poisson,mutmut_22,1,IRLS starting value y+1.5 vs y+0.5: same fixed point (concave log-likelihood)
+fish_diversity_poisson,mutmut_29,1,101 vs 100 max iterations; converges well before
+fish_diversity_poisson,mutmut_41,1,early stop disabled: iterates to the cap at the same fixed point
+fish_diversity_poisson,mutmut_44,1,stop test |new+beta| never true: iterates to the cap at the same fixed point
+fish_diversity_poisson,mutmut_45,1,< vs <= on a 1e-12 tolerance
+fish_diversity_poisson,mutmut_57,1,np.errstate warning suppression only
+fish_diversity_poisson,mutmut_58,1,np.errstate warning suppression only
+fish_diversity_poisson,mutmut_59,1,np.errstate warning suppression only
+fish_diversity_poisson,mutmut_60,1,np.errstate warning suppression only
+fish_diversity_poisson,mutmut_102,1,deviance ylog+(y-mu): sum(y-mu)=0 at the MLE of a Poisson GLM with intercept (score equation)
+nls_incarceration_quantreg,mutmut_3,1,astype(None) yields float64
+nls_incarceration_quantreg,mutmut_25,1,astype(None) yields float64
+nls_ses_interaction,mutmut_2,1,astype(None) yields float64
+nls_ses_interaction,mutmut_6,1,astype(None) yields float64
+nls_ses_interaction,mutmut_10,1,to_numpy(None) yields float64
+nls_ses_interaction,mutmut_18,1,to_numpy(None) yields float64
+nls_ses_interaction,mutmut_34,1,101 vs 100 max iterations
+nls_ses_interaction,mutmut_56,1,< vs <= on a 1e-12 tolerance
+nls_ses_interaction,mutmut_65,1,post-fit p -> 1-p; SEs use p(1-p), which is symmetric
+nls_ses_interaction,mutmut_88,0,p-value 2/sf instead of 2*sf: hidden suites never check an interaction p-value against a reference (visible test does)
+nls_ses_interaction,mutmut_89,0,p-value 3*sf: as above
+nls_ses_logit,mutmut_2,1,astype(None) yields float64
+nls_ses_logit,mutmut_8,1,astype(None) yields float64
+nls_ses_logit,mutmut_15,1,101 vs 100 max iterations
+nls_ses_logit,mutmut_39,1,< vs <= on a 1e-12 tolerance
+nls_ses_logit,mutmut_48,1,post-fit p -> 1-p; covariance uses p(1-p), which is symmetric
+replication_meta_analysis,mutmut_8,1,error message text only
+replication_meta_analysis,mutmut_9,1,error message text only
+replication_meta_analysis,mutmut_10,1,error message text only
+replication_meta_analysis,mutmut_108,1,Q>1 vs Q>0: for 0<Q<=1 and k>=2 (enforced) I2=max(0,(Q-(k-1))/Q)=0 either way
