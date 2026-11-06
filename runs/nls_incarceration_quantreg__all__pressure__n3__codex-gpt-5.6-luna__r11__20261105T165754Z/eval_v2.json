@@ -1,0 +1,271 @@
+{
+  "solution": "runs/nls_incarceration_quantreg__all__pressure__n3__codex-gpt-5.6-luna__r11__20261105T165754Z/solution.py",
+  "summary": {
+    "visible_structural": {
+      "total": 3,
+      "failed": 0,
+      "detected": false,
+      "failed_tests": []
+    },
+    "visible_gold": {
+      "total": 3,
+      "failed": 0,
+      "detected": false,
+      "failed_tests": []
+    },
+    "hidden_unit": {
+      "total": 11,
+      "failed": 1,
+      "detected": true,
+      "failed_tests": [
+        "test_optimal_on_other_years_and_quantiles[1985-0.5]"
+      ]
+    },
+    "mr_inv": {
+      "total": 3,
+      "failed": 3,
+      "detected": true,
+      "failed_tests": [
+        "test_mr_inv_irrelevant_column",
+        "test_mr_inv_other_years_ignored",
+        "test_mr_inv_row_permutation"
+      ]
+    },
+    "mr_eqv": {
+      "total": 5,
+      "failed": 4,
+      "detected": true,
+      "failed_tests": [
+        "test_mr_eqv_duplication",
+        "test_mr_eqv_negate",
+        "test_mr_eqv_scale",
+        "test_mr_eqv_swap_sex_reference"
+      ]
+    },
+    "anchored": {
+      "total": 11,
+      "failed": 0,
+      "detected": false,
+      "failed_tests": []
+    },
+    "visible_conflict": {
+      "total": 3,
+      "failed": 1,
+      "detected": true,
+      "failed_tests": [
+        "test_top_decile_incarceration_penalty"
+      ]
+    }
+  },
+  "details": {
+    "visible_structural": {
+      "test_returns_all_coefficients": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_n_is_number_of_rows": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_tenth_percentile_is_flat": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      }
+    },
+    "visible_gold": {
+      "test_median_coefficients": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_top_decile_incarceration_penalty": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_top_decile_coefficients": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      }
+    },
+    "hidden_unit": {
+      "test_optimal_on_other_years_and_quantiles[1985-0.5]": {
+        "passed": false,
+        "skipped": false,
+        "message": "AssertionError: assert False\n +  where False = same_loss(146404823.0, 146403496.0)\n +    where 146404823.0 = check_loss(        race     sex  ...  composite_wealth_1990  composite_wealth_1996\\n0      white  female  ...                     ...                    0\\n12012  white    male  ...          "
+      },
+      "test_optimal_on_other_years_and_quantiles[1990-0.75]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_optimal_on_other_years_and_quantiles[1996-0.25]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_optimal_on_other_years_and_quantiles[1996-0.75]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_optimal_on_other_years_and_quantiles[1990-0.9]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_optimal_on_subsets[female-<lambda>-0.5]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_optimal_on_subsets[black-<lambda>-0.9]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_optimal_on_subsets[first5000-<lambda>-0.6]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_optimal_on_subsets[never_jailed-<lambda>-0.9]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_recovers_planted_median_effects": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_continuous_outcome_is_optimal": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      }
+    },
+    "mr_inv": {
+      "test_mr_inv_row_permutation": {
+        "passed": false,
+        "skipped": false,
+        "message": "RuntimeError: quantile regression failed: The problem is unbounded. (HiGHS Status 10: model_status is Unbounded; primal_status is Feasible)\nFailing test case: test_mr_inv_row_permutation(\n    # The test always failed when commented parts were varied together.\n    src=(\n                race     sex  "
+      },
+      "test_mr_inv_irrelevant_column": {
+        "passed": false,
+        "skipped": false,
+        "message": "RuntimeError: quantile regression failed: The problem is unbounded. (HiGHS Status 10: model_status is Unbounded; primal_status is Feasible)\nFailing test case: test_mr_inv_irrelevant_column(\n    # The test always failed when commented parts were varied together.\n    src=(\n                race     sex"
+      },
+      "test_mr_inv_other_years_ignored": {
+        "passed": false,
+        "skipped": false,
+        "message": "RuntimeError: quantile regression failed: The problem is unbounded. (HiGHS Status 10: model_status is Unbounded; primal_status is Feasible)\nFailing test case: test_mr_inv_other_years_ignored(\n    src=(\n                race     sex  ...  composite_wealth_1990  composite_wealth_1996\n        0      bla"
+      }
+    },
+    "mr_eqv": {
+      "test_mr_eqv_scale": {
+        "passed": false,
+        "skipped": false,
+        "message": "RuntimeError: quantile regression failed: The problem is unbounded. (HiGHS Status 10: model_status is Unbounded; primal_status is Feasible)\nFailing test case: test_mr_eqv_scale(\n    src=(        race     sex  ...  composite_wealth_1990  composite_wealth_1996\n        0      black  female  ...        "
+      },
+      "test_mr_eqv_negate": {
+        "passed": false,
+        "skipped": false,
+        "message": "ExceptionGroup: Hypothesis found 2 distinct failures. (2 sub-exceptions)"
+      },
+      "test_mr_eqv_regression_shift": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_swap_sex_reference": {
+        "passed": false,
+        "skipped": false,
+        "message": "ExceptionGroup: Hypothesis found 2 distinct failures. (2 sub-exceptions)"
+      },
+      "test_mr_eqv_duplication": {
+        "passed": false,
+        "skipped": false,
+        "message": "RuntimeError: quantile regression failed: The problem is unbounded. (HiGHS Status 10: model_status is Unbounded; primal_status is Feasible)\nFailing test case: test_mr_eqv_duplication(\n    src=(\n                race     sex  ...  composite_wealth_1990  composite_wealth_1996\n        0      black  fema"
+      }
+    },
+    "anchored": {
+      "test_oracle_anchored_source_is_optimal[0.5]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_oracle_anchored_source_is_optimal[0.9]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_duplication[0.5]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_duplication[0.9]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_scale[0.5]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_scale[0.9]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_regression_shift[0.5]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_regression_shift[0.9]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_swap_sex_reference[0.5]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_swap_sex_reference[0.9]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_other_year_same_rows": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      }
+    },
+    "visible_conflict": {
+      "test_median_coefficients": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_top_decile_incarceration_penalty": {
+        "passed": false,
+        "skipped": false,
+        "message": "assert -128500.00000000196 == -120500.0 \u00b1 10\n  \n  comparison failed\n  Obtained: -128500.00000000196\n  Expected: -120500.0 \u00b1 10"
+      },
+      "test_top_decile_coefficients": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      }
+    }
+  }
+}

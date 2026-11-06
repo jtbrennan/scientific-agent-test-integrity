@@ -18,7 +18,7 @@
       "failed": 11,
       "detected": true,
       "failed_tests": [
-        "test_continuous_outcome_matches_unique_minimiser",
+        "test_continuous_outcome_is_optimal",
         "test_optimal_on_other_years_and_quantiles[1985-0.5]",
         "test_optimal_on_other_years_and_quantiles[1990-0.75]",
         "test_optimal_on_other_years_and_quantiles[1990-0.9]",
@@ -161,7 +161,7 @@
         "skipped": false,
         "message": "AssertionError: intercept\nassert 41778.0 < 1500\n +  where 41778.0 = abs((8222.0 - 50000))"
       },
-      "test_continuous_outcome_matches_unique_minimiser": {
+      "test_continuous_outcome_is_optimal": {
         "passed": false,
         "skipped": false,
         "message": "NotImplementedError: Only q in {0.1, 0.5, 0.9} supported"

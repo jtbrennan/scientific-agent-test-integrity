@@ -17,11 +17,9 @@
     },
     "hidden_unit": {
       "total": 11,
-      "failed": 1,
-      "detected": true,
-      "failed_tests": [
-        "test_continuous_outcome_matches_unique_minimiser"
-      ]
+      "failed": 0,
+      "detected": false,
+      "failed_tests": []
     },
     "mr_inv": {
       "total": 3,
@@ -141,10 +139,10 @@
         "skipped": false,
         "message": ""
       },
-      "test_continuous_outcome_matches_unique_minimiser": {
-        "passed": false,
+      "test_continuous_outcome_is_optimal": {
+        "passed": true,
         "skipped": false,
-        "message": "AssertionError: ever_jailed\nassert -8001.419616204512 == -8109.9183 \u00b1 0.05\n  \n  comparison failed\n  Obtained: -8001.419616204512\n  Expected: -8109.9183 \u00b1 0.05"
+        "message": ""
       }
     },
     "mr_inv": {

@@ -138,7 +138,7 @@
         "skipped": false,
         "message": ""
       },
-      "test_continuous_outcome_matches_unique_minimiser": {
+      "test_continuous_outcome_is_optimal": {
         "passed": true,
         "skipped": false,
         "message": ""

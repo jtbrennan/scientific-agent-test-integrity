@@ -32,12 +32,10 @@
       "failed_tests": []
     },
     "anchored": {
-      "total": 1,
-      "failed": 1,
-      "detected": true,
-      "failed_tests": [
-        "__suite__"
-      ]
+      "total": 11,
+      "failed": 0,
+      "detected": false,
+      "failed_tests": []
     },
     "visible_conflict": {
       "total": 3,
@@ -134,7 +132,7 @@
         "skipped": false,
         "message": ""
       },
-      "test_continuous_outcome_matches_unique_minimiser": {
+      "test_continuous_outcome_is_optimal": {
         "passed": true,
         "skipped": false,
         "message": ""
@@ -185,9 +183,60 @@
       }
     },
     "anchored": {
-      "__suite__": {
-        "passed": false,
-        "message": "suite timeout"
+      "test_oracle_anchored_source_is_optimal[0.5]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_oracle_anchored_source_is_optimal[0.9]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_duplication[0.5]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_duplication[0.9]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_scale[0.5]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_scale[0.9]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_regression_shift[0.5]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_regression_shift[0.9]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_swap_sex_reference[0.5]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_swap_sex_reference[0.9]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_other_year_same_rows": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
       }
     },
     "visible_conflict": {

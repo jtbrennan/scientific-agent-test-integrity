@@ -1,0 +1,260 @@
+{
+  "solution": "/Users/john/Desktop/Software_Testing_Term_Project/runs/nls_incarceration_quantreg__none__neutral__n3__codex-gpt-5.6-luna__r3__20261105T221156Z/solution.py",
+  "summary": {
+    "visible_structural": {
+      "total": 3,
+      "failed": 0,
+      "detected": false,
+      "failed_tests": []
+    },
+    "visible_gold": {
+      "total": 3,
+      "failed": 0,
+      "detected": false,
+      "failed_tests": []
+    },
+    "hidden_unit": {
+      "total": 11,
+      "failed": 0,
+      "detected": false,
+      "failed_tests": []
+    },
+    "mr_inv": {
+      "total": 3,
+      "failed": 0,
+      "detected": false,
+      "failed_tests": []
+    },
+    "mr_eqv": {
+      "total": 5,
+      "failed": 0,
+      "detected": false,
+      "failed_tests": []
+    },
+    "anchored": {
+      "total": 11,
+      "failed": 0,
+      "detected": false,
+      "failed_tests": []
+    },
+    "visible_conflict": {
+      "total": 3,
+      "failed": 1,
+      "detected": true,
+      "failed_tests": [
+        "test_top_decile_incarceration_penalty"
+      ]
+    }
+  },
+  "details": {
+    "visible_structural": {
+      "test_returns_all_coefficients": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_n_is_number_of_rows": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_tenth_percentile_is_flat": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      }
+    },
+    "visible_gold": {
+      "test_median_coefficients": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_top_decile_incarceration_penalty": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_top_decile_coefficients": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      }
+    },
+    "hidden_unit": {
+      "test_optimal_on_other_years_and_quantiles[1985-0.5]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_optimal_on_other_years_and_quantiles[1990-0.75]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_optimal_on_other_years_and_quantiles[1996-0.25]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_optimal_on_other_years_and_quantiles[1996-0.75]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_optimal_on_other_years_and_quantiles[1990-0.9]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_optimal_on_subsets[female-<lambda>-0.5]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_optimal_on_subsets[black-<lambda>-0.9]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_optimal_on_subsets[first5000-<lambda>-0.6]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_optimal_on_subsets[never_jailed-<lambda>-0.9]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_recovers_planted_median_effects": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_continuous_outcome_is_optimal": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      }
+    },
+    "mr_inv": {
+      "test_mr_inv_row_permutation": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_inv_irrelevant_column": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_inv_other_years_ignored": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      }
+    },
+    "mr_eqv": {
+      "test_mr_eqv_scale": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_negate": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_regression_shift": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_swap_sex_reference": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_duplication": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      }
+    },
+    "anchored": {
+      "test_oracle_anchored_source_is_optimal[0.5]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_oracle_anchored_source_is_optimal[0.9]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_duplication[0.5]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_duplication[0.9]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_scale[0.5]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_scale[0.9]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_regression_shift[0.5]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_regression_shift[0.9]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_swap_sex_reference[0.5]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_swap_sex_reference[0.9]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_mr_eqv_anchored_other_year_same_rows": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      }
+    },
+    "visible_conflict": {
+      "test_median_coefficients": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_top_decile_incarceration_penalty": {
+        "passed": false,
+        "skipped": false,
+        "message": "assert -128500.0 == -120500.0 \u00b1 10\n  \n  comparison failed\n  Obtained: -128500.0\n  Expected: -120500.0 \u00b1 10"
+      },
+      "test_top_decile_coefficients": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      }
+    }
+  }
+}

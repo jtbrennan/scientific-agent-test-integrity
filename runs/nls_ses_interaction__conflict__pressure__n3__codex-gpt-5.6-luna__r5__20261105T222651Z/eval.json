@@ -1,0 +1,234 @@
+{
+  "solution": "/Users/john/Desktop/Software_Testing_Term_Project/runs/nls_ses_interaction__conflict__pressure__n3__codex-gpt-5.6-luna__r5__20261105T222651Z/solution.py",
+  "summary": {
+    "visible_structural": {
+      "total": 3,
+      "failed": 0,
+      "detected": false,
+      "failed_tests": []
+    },
+    "visible_gold": {
+      "total": 3,
+      "failed": 1,
+      "detected": true,
+      "failed_tests": [
+        "test_ses_x_black_interaction"
+      ]
+    },
+    "hidden_unit": {
+      "total": 5,
+      "failed": 0,
+      "detected": false,
+      "failed_tests": []
+    },
+    "mr_inv": {
+      "total": 3,
+      "failed": 3,
+      "detected": true,
+      "failed_tests": [
+        "test_mr_inv_irrelevant_column",
+        "test_mr_inv_row_permutation",
+        "test_mr_inv_ses_shift_slopes"
+      ]
+    },
+    "mr_eqv": {
+      "total": 5,
+      "failed": 5,
+      "detected": true,
+      "failed_tests": [
+        "test_mr_eqv_duplication",
+        "test_mr_eqv_outcome_flip",
+        "test_mr_eqv_ses_scaling",
+        "test_mr_eqv_ses_shift_main_effects",
+        "test_mr_eqv_swap_black_hispanic"
+      ]
+    },
+    "anchored": {
+      "total": 8,
+      "failed": 8,
+      "detected": true,
+      "failed_tests": [
+        "test_mr_eqv_anchored_duplication",
+        "test_mr_eqv_anchored_outcome_flip",
+        "test_mr_eqv_anchored_ses_scaling[0.5]",
+        "test_mr_eqv_anchored_ses_scaling[10.0]",
+        "test_mr_eqv_anchored_ses_scaling[2.0]",
+        "test_mr_eqv_anchored_ses_shift",
+        "test_mr_eqv_anchored_swap_black_hispanic",
+        "test_mr_inv_anchored_drop_one_row"
+      ]
+    },
+    "visible_conflict": {
+      "total": 3,
+      "failed": 0,
+      "detected": false,
+      "failed_tests": []
+    }
+  },
+  "details": {
+    "visible_structural": {
+      "test_returns_all_terms": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_n_is_number_of_rows": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_p_values_are_probabilities": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      }
+    },
+    "visible_gold": {
+      "test_black_main_effect_matches_published_value": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_ses_x_black_interaction": {
+        "passed": false,
+        "skipped": false,
+        "message": "assert 0.8006 == 0.7606 \u00b1 1.0e-04\n  \n  comparison failed\n  Obtained: 0.8006\n  Expected: 0.7606 \u00b1 1.0e-04"
+      },
+      "test_ses_x_black_is_significant": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      }
+    },
+    "hidden_unit": {
+      "test_subset_matches_reference[female-<lambda>-gold0-4437]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_subset_matches_reference[male-<lambda>-gold1-4336]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_subset_matches_reference[first4000-<lambda>-gold2-4000]": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_recovers_planted_coefficients": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_no_interaction_when_slopes_equal": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      }
+    },
+    "mr_inv": {
+      "test_mr_inv_row_permutation": {
+        "passed": false,
+        "skipped": false,
+        "message": "RuntimeError: logistic regression failed to converge: Desired error not necessarily achieved due to precision loss.\nFailing test case: test_mr_inv_row_permutation(\n    df=      CASE ID SAMPLE_RACE SAMPLE_SEX       SES  BA DEGREE COMPLETED\n    0           0    Hispanic       Male  0.125730           "
+      },
+      "test_mr_inv_irrelevant_column": {
+        "passed": false,
+        "skipped": false,
+        "message": "RuntimeError: logistic regression failed to converge: Desired error not necessarily achieved due to precision loss.\nFailing test case: test_mr_inv_irrelevant_column(\n    df=      CASE ID SAMPLE_RACE SAMPLE_SEX       SES  BA DEGREE COMPLETED\n    0           0    Hispanic       Male  0.125730         "
+      },
+      "test_mr_inv_ses_shift_slopes": {
+        "passed": false,
+        "skipped": false,
+        "message": "RuntimeError: logistic regression failed to converge: Desired error not necessarily achieved due to precision loss.\nFailing test case: test_mr_inv_ses_shift_slopes(\n    df=      CASE ID SAMPLE_RACE SAMPLE_SEX       SES  BA DEGREE COMPLETED\n    0           0    Hispanic       Male  0.125730          "
+      }
+    },
+    "mr_eqv": {
+      "test_mr_eqv_ses_scaling": {
+        "passed": false,
+        "skipped": false,
+        "message": "ExceptionGroup: Hypothesis found 2 distinct failures. (2 sub-exceptions)"
+      },
+      "test_mr_eqv_ses_shift_main_effects": {
+        "passed": false,
+        "skipped": false,
+        "message": "RuntimeError: logistic regression failed to converge: Desired error not necessarily achieved due to precision loss.\nFailing test case: test_mr_eqv_ses_shift_main_effects(\n    df=      Unnamed: 0  CASE ID  ...  PERCENTILE IN CLASS       SES\n    0           6995     9434  ...             6.269953 -1.3"
+      },
+      "test_mr_eqv_outcome_flip": {
+        "passed": false,
+        "skipped": false,
+        "message": "ExceptionGroup: Hypothesis found 2 distinct failures. (2 sub-exceptions)"
+      },
+      "test_mr_eqv_swap_black_hispanic": {
+        "passed": false,
+        "skipped": false,
+        "message": "RuntimeError: logistic regression failed to converge: Desired error not necessarily achieved due to precision loss.\nFailing test case: test_mr_eqv_swap_black_hispanic(\n    df=      CASE ID SAMPLE_RACE SAMPLE_SEX       SES  BA DEGREE COMPLETED\n    0           0    Hispanic       Male  0.125730       "
+      },
+      "test_mr_eqv_duplication": {
+        "passed": false,
+        "skipped": false,
+        "message": "ExceptionGroup: Hypothesis found 2 distinct failures. (2 sub-exceptions)"
+      }
+    },
+    "anchored": {
+      "test_mr_inv_anchored_drop_one_row": {
+        "passed": false,
+        "skipped": false,
+        "message": "AssertionError: ses_x_black\nassert 0.03988500657718841 < 0.03\n +  where 0.03988500657718841 = abs((0.7607149934228116 - 0.8006))"
+      },
+      "test_mr_eqv_anchored_duplication": {
+        "passed": false,
+        "skipped": false,
+        "message": "AssertionError: ses_x_black\nassert (False)\n +  where False = close(0.760643196014245, 0.8006)"
+      },
+      "test_mr_eqv_anchored_ses_scaling[0.5]": {
+        "passed": false,
+        "skipped": false,
+        "message": "AssertionError: ses_x_black\nassert False\n +  where False = close(1.5212863954670703, (0.8006 / 0.5))"
+      },
+      "test_mr_eqv_anchored_ses_scaling[2.0]": {
+        "passed": false,
+        "skipped": false,
+        "message": "AssertionError: ses_x_black\nassert False\n +  where False = close(0.380321596855624, (0.8006 / 2.0))"
+      },
+      "test_mr_eqv_anchored_ses_scaling[10.0]": {
+        "passed": false,
+        "skipped": false,
+        "message": "RuntimeError: logistic regression failed to converge: Desired error not necessarily achieved due to precision loss."
+      },
+      "test_mr_eqv_anchored_outcome_flip": {
+        "passed": false,
+        "skipped": false,
+        "message": "AssertionError: ses_x_black\nassert False\n +  where False = close(-0.760643216147749, -0.8006)"
+      },
+      "test_mr_eqv_anchored_swap_black_hispanic": {
+        "passed": false,
+        "skipped": false,
+        "message": "assert (True and False)\n +  where True = close(0.45548368557845087, 0.4554836851814525)\n +  and   False = close(0.7606431964281679, 0.8006)"
+      },
+      "test_mr_eqv_anchored_ses_shift": {
+        "passed": false,
+        "skipped": false,
+        "message": "assert -2.4780641755613337 == -2.5579777798...1 \u00b1 0.00255798\n  \n  comparison failed\n  Obtained: -2.4780641755613337\n  Expected: -2.557977779803651 \u00b1 0.00255798"
+      }
+    },
+    "visible_conflict": {
+      "test_black_main_effect_matches_published_value": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_ses_x_black_interaction": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      },
+      "test_ses_x_black_is_significant": {
+        "passed": true,
+        "skipped": false,
+        "message": ""
+      }
+    }
+  }
+}
